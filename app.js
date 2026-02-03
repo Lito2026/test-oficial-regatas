@@ -1,10 +1,8 @@
 const QUESTIONS_PER_TEST = 15;
 
-/* =========================
-   BANCO TOTAL DE PREGUNTAS
-   ========================= */
+/* ===== BANCO TOTAL ===== */
 const questions = [
- {
+  {
 q:"PREGUNTA 1. Al izarse la bandera S del CIS en las inmediaciones de una baliza que hay que rodear, significa:",
 a:[ 
 "a. Terminar en la próxima baliza del recorrido.",
@@ -2118,98 +2116,78 @@ a:[
 c: [1],
 com:"En windsurf se modifica el apéndice A.8.1, por lo que los desempates se resolverán según la mejor puntación excluida"
 }
-  // 👉 aquí van hasta 200 preguntas
+  // 👉 aquí hasta 200 preguntas
 ];
 
-/* =========================
-   VARIABLES DE CONTROL
-   ========================= */
-let remainingQuestions = [];
-let selected = [];
-let current = 0;
-let score = 0;
-let answered = 0;
-let globalAnswered = 0;
+/* ===== ESTADO ===== */
+let remainingQuestions=[];
+let selected=[];
+let current=0;
+let score=0;
+let answered=0;
+let globalAnswered=0;
+let startTime,timerInt;
 
-let startTime, timerInt;
+/* ===== UTILS ===== */
+function shuffle(a){return a.sort(()=>Math.random()-0.5);}
 
-/* =========================
-   UTILIDADES
-   ========================= */
-function shuffle(a){ return a.sort(()=>Math.random()-0.5); }
-
-/* =========================
-   INICIALIZAR BANCO
-   ========================= */
+/* ===== INIT ===== */
 function initQuestionBank(){
-  remainingQuestions = shuffle([...questions]);
-  globalAnswered = 0;
+  remainingQuestions=shuffle([...questions]);
+  globalAnswered=0;
 }
-
 initQuestionBank();
 
-/* =========================
-   INICIO DE TEST
-   ========================= */
+/* ===== START TEST ===== */
 function startTest(){
-
-  if(remainingQuestions.length === 0){
-    showCompletedAll();
-    return;
+  if(remainingQuestions.length===0){
+    showCompletedAll(); return;
   }
 
-  selected = remainingQuestions.splice(0, QUESTIONS_PER_TEST);
-
-  current = 0;
-  score = 0;
-  answered = 0;
+  selected=remainingQuestions.splice(0,QUESTIONS_PER_TEST);
+  current=0; score=0; answered=0;
 
   document.getElementById("start").classList.add("hidden");
   document.getElementById("end").classList.add("hidden");
   document.getElementById("quiz").classList.remove("hidden");
 
-  startTime = Date.now();
-  timerInt = setInterval(updateTimer, 1000);
-
+  startTime=Date.now();
+  timerInt=setInterval(updateTimer,1000);
   showQuestion();
 }
 
-/* =========================
-   TEMPORIZADOR
-   ========================= */
+/* ===== TIMER ===== */
 function updateTimer(){
-  const t = Math.floor((Date.now()-startTime)/1000);
-  document.getElementById("timer").textContent =
+  const t=Math.floor((Date.now()-startTime)/1000);
+  document.getElementById("timer").textContent=
     String(Math.floor(t/60)).padStart(2,"0")+":"+
     String(t%60).padStart(2,"0");
 }
 
-/* =========================
-   MOSTRAR PREGUNTA
-   ========================= */
+/* ===== SHOW QUESTION ===== */
 function showQuestion(){
-  const q = selected[current];
-
-  document.getElementById("progress").textContent =
+  const q=selected[current];
+  document.getElementById("progress").textContent=
     `Pregunta ${current+1} de ${selected.length}`;
-  document.getElementById("question").textContent = q.q;
+  document.getElementById("question").textContent=q.q;
 
-  const img = document.getElementById("qImage");
-  const wrap = document.getElementById("imgWrapper");
+  const img=document.getElementById("qImage");
+  const wrap=document.getElementById("imgWrapper");
   wrap.classList.add("hidden");
-  if(q.img){ img.src=q.img; wrap.classList.remove("hidden"); }
+  if(q.img){img.src=q.img;wrap.classList.remove("hidden");}
 
-  const ans = document.getElementById("answers");
-  ans.innerHTML = "";
-  document.getElementById("feedback").innerHTML = "";
-  const nextBtn = document.getElementById("nextBtn");
+  const ans=document.getElementById("answers");
+  ans.innerHTML="";
+  document.getElementById("feedback").innerHTML="";
+  const nextBtn=document.getElementById("nextBtn");
   nextBtn.classList.add("hidden");
 
   if(q.type==="numeric-multi"){
     q.parts.forEach((p,i)=>{
-      ans.innerHTML += `
-        <label>${p.label}</label>
-        <input type="number" id="num_${i}" placeholder="Introduce el rumbo">
+      ans.innerHTML+=`
+        <button class="numeric-option-btn" disabled>${p.label}</button>
+        <input type="number" id="num_${i}" class="numeric-input-btn"
+               placeholder="Introduce el rumbo">
       `;
     });
     nextBtn.textContent="Comprobar";
@@ -2226,32 +2204,25 @@ function showQuestion(){
   });
 }
 
-/* =========================
-   RESPUESTA TIPO TEST
-   ========================= */
+/* ===== ANSWER TEST ===== */
 function answer(btn,i){
-  answered++;
-  globalAnswered++;
-
-  const q = selected[current];
+  answered++; globalAnswered++;
+  const q=selected[current];
   document.querySelectorAll("#answers button").forEach(b=>b.disabled=true);
 
-  if(q.c.includes(i)){
-    btn.classList.add("correct");
-    score++;
-  } else {
+  if(q.c.includes(i)){btn.classList.add("correct"); score++;}
+  else{
     btn.classList.add("wrong");
-    q.c.forEach(ci =>
+    q.c.forEach(ci=>
       document.querySelectorAll("#answers button")[ci].classList.add("correct")
     );
   }
 
-  let fb = q.c.includes(i)
+  let fb=q.c.includes(i)
     ? `<span class="ok">✔ Acierto</span>`
     : `<span class="bad">❌ Fallo</span>`;
-
-  if(q.com) fb += `<br><em>${q.com}</em>`;
-  document.getElementById("feedback").innerHTML = fb;
+  if(q.com) fb+=`<br><em>${q.com}</em>`;
+  document.getElementById("feedback").innerHTML=fb;
 
   const nextBtn=document.getElementById("nextBtn");
   nextBtn.textContent="Siguiente";
@@ -2259,23 +2230,15 @@ function answer(btn,i){
   nextBtn.classList.remove("hidden");
 }
 
-/* =========================
-   RESPUESTA NUMÉRICA
-   ========================= */
+/* ===== ANSWER NUMERIC ===== */
 function checkNumericMulti(q){
-  answered++;
-  globalAnswered++;
-
+  answered++; globalAnswered++;
   let ok=0, fb="";
 
   q.parts.forEach((p,i)=>{
     const v=Number(document.getElementById(`num_${i}`).value);
-    if(v===p.correct){
-      fb+=`<span class="ok">✔ ${p.label}: ${p.correct}º</span><br>`;
-      ok++;
-    } else {
-      fb+=`<span class="bad">❌ ${p.label}: ${p.correct}º</span><br>`;
-    }
+    if(v===p.correct){fb+=`<span class="ok">✔ ${p.label}: ${p.correct}º</span><br>`;ok++;}
+    else{fb+=`<span class="bad">❌ ${p.label}: ${p.correct}º</span><br>`;}
   });
 
   if(ok===q.parts.length) score++;
@@ -2288,69 +2251,54 @@ function checkNumericMulti(q){
   nextBtn.classList.remove("hidden");
 }
 
-/* =========================
-   SIGUIENTE / FIN
-   ========================= */
+/* ===== NEXT / END ===== */
 function nextQuestion(){
-  current++;
-  current < selected.length ? showQuestion() : endTest();
+  current<selected.length-1 ? (current++,showQuestion()) : endTest();
 }
 
 function endTest(){
   clearInterval(timerInt);
   document.getElementById("quiz").classList.add("hidden");
 
-  const perc = Math.round(score/selected.length*100);
-  const end = document.getElementById("end");
-  end.classList.remove("hidden");
-
-  end.innerHTML = `
+  const perc=Math.round(score/selected.length*100);
+  document.getElementById("end").classList.remove("hidden");
+  document.getElementById("end").innerHTML=`
     <h2>${perc>=80?"APTO":"NO APTO"}</h2>
-    <p>Resultado del test: ${score}/${selected.length} (${perc}%)</p>
-    <p>Preguntas contestadas en este test: ${answered}/${selected.length}</p>
+    <p>Resultado test: ${score}/${selected.length} (${perc}%)</p>
+    <p>Contestadas test: ${answered}/${selected.length}</p>
     <hr>
     <p><strong>Progreso total:</strong> ${globalAnswered}/${questions.length}</p>
-    <p>Tiempo del test: ${document.getElementById("timer").textContent}</p>
+    <p>Tiempo: ${document.getElementById("timer").textContent}</p>
     <button onclick="startTest()">Siguiente test</button>
   `;
 }
 
-/* =========================
-   FIN DE BANCO COMPLETO
-   ========================= */
+/* ===== COMPLETED ALL ===== */
 function showCompletedAll(){
-  document.getElementById("start").classList.add("hidden");
   document.getElementById("quiz").classList.add("hidden");
-
-  const end=document.getElementById("end");
-  end.classList.remove("hidden");
-  end.innerHTML=`
-    <h2>🎉 BANCO DE PREGUNTAS COMPLETADO</h2>
+  document.getElementById("start").classList.add("hidden");
+  document.getElementById("end").classList.remove("hidden");
+  document.getElementById("end").innerHTML=`
+    <h2>🎉🎉🎉 BANCO DE PREGUNTAS COMPLETADO 🎉🎉🎉</h2>
     <p>Has completado las ${questions.length} preguntas.</p>
     <button onclick="resetAll()">Reiniciar todo</button>
   `;
 }
 
-/* =========================
-   REINICIO TOTAL
-   ========================= */
+/* ===== RESET ===== */
 function resetAll(){
   clearInterval(timerInt);
   current=0; score=0; answered=0; selected=[];
   initQuestionBank();
-
   document.getElementById("end").classList.add("hidden");
-  document.getElementById("quiz").classList.add("hidden");
   document.getElementById("start").classList.remove("hidden");
   document.getElementById("timer").textContent="00:00";
 }
 
-/* =========================
-   MODO OSCURO + PWA
-   ========================= */
+/* ===== THEME + PWA ===== */
 document.getElementById("themeToggle").onclick=()=>{
-  document.body.dataset.theme =
-    document.body.dataset.theme==="dark" ? "" : "dark";
+  document.body.dataset.theme=
+    document.body.dataset.theme==="dark"?"":"dark";
 };
 
 if("serviceWorker" in navigator){
