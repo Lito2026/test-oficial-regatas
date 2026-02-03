@@ -1,6 +1,10 @@
-const questions = [
+const QUESTIONS_PER_TEST = 15;
 
-{
+/* =========================
+   BANCO TOTAL DE PREGUNTAS
+   ========================= */
+const questions = [
+ {
 q:"PREGUNTA 1. Al izarse la bandera S del CIS en las inmediaciones de una baliza que hay que rodear, significa:",
 a:[ 
 "a. Terminar en la próxima baliza del recorrido.",
@@ -54,7 +58,7 @@ com:""
       { label: "De Baliza 3 a Baliza 4", correct: 160 },
       { label: "De Baliza 3 a la Línea de Llegada", correct: 110 }
     ],
-    com: "Directrices 5.2 para barcos sin spi y windsurfer. 110º para barcos con spi (120º)."
+    com:"Directrices 5.2 para barcos sin spi y windsurfer. 110º para barcos con spi (120º)."
   },
 {
 q:"PREGUNTA 6. Las instrucciones de regatas establecen que 5 minutos antes de la señal de atención se dará una bandera naranja en el mástil de señales del barco del comité de regatas para indicar que una prueba comenzará en breve. El gallardete de Inteligencia ha sido izado en el comité debido a la ausencia de viento. En este caso, cuando se debe izar la bandera naranja:",
@@ -806,26 +810,32 @@ c: [1],
 com:" Otras Señales del RRV - Bandera Naranja. La percha que arbola esta bandera es un extremo de la línea de salida. Para que sean lo de los 5 minutos se ha de indicar en las instrucciones de regata."
 },
 {
-q:"PREGUNTA 79. ¿ Quién publica el Anuncio de Regata?",
-a:[ 
-"a.	El Comité de Regata",
-"b.	La Autoridad Organizadora",
-"c.	El Comité de Protestas",
-"d.	La Autoridad Nacional"
-],
-c: [1],
-com:""
+type: "numeric-multi",
+    q: "PREGUNTA 79. Tenemos un viento del 180º y queremos montar un recorrido trapezoidal para la clase ILCA 6. Indica los rumbos de los siguientes tramos:",
+    parts: [
+      { label: "De Linea de salida a Baliza 1", correct: 180 },
+      { label: "De Baliza 1 a Baliza 2", correct: 70 },
+      { label: "De Baliza 1 a Baliza 4", correct: 360 },
+      { label: "De Baliza 3 a Baliza 4", correct: 250 },
+      { label: "De Baliza 3 a la Línea de Llegada", correct: 290 },
+      { label: "De la Línea de Llegada a Baliza 3", correct: 110 },
+      { label: "Del barco del Comite a PIN de salida", correct: 110 }
+    ],
+    com:"Directrices 5.2 para barcos sin spi y windsurfer. 110º para barcos con spi (120º)."
 },
 {
-q:"PREGUNTA 80. De acuerdo con las Reglas de la WS, se pueden hacer modificaciones en las instrucciones de regata",
-a:[ 
-"a.	solamente publicándolas en el tablón oficial de avisos.",
-"b.	por escrito, notificándolo en el tablón oficial de avisos en el plazo apropiado o comunicándolas a cada barco en el agua antes de la señal de atención.",
-"c.	oralmente, en cualquier momento antes de la señal de preparación.",
-"d.	izando la bandera L."
-],
-c: [1],
-com:""
+type: "numeric-multi",
+    q: "PREGUNTA 80. Tenemos un viento del 270º y queremos montar un recorrido trapezoidal para la clase ILCA 6. Indica los rumbos de los siguientes tramos:",
+    parts: [
+      { label: "De Linea de salida a Baliza 1", correct: 270 },
+      { label: "De Baliza 1 a Baliza 2", correct: 160 },
+      { label: "De Baliza 1 a Baliza 4", correct: 90 },
+      { label: "De Baliza 3 a Baliza 4", correct: 340 },
+      { label: "De Baliza 3 a la Línea de Llegada", correct: 20 },
+      { label: "De la Línea de Llegada a Baliza 3", correct: 200 },
+      { label: "Del barco del Comite a PIN de salida", correct: 180 }
+    ],
+    com:"Directrices 5.2 para barcos sin spi y windsurfer. 110º para barcos con spi (120º)."
 },
 {
 q:"PREGUNTA 81. Las instrucciones de regata pueden alterar",
@@ -836,117 +846,146 @@ a:[
 "d.	las Reglas de la Introducción"
 ],
 c: [2],
-com:""
+com:" RRV 86.1 (B) No se puede modificar una regla del reglamento de regatas salvo si así lo permite la misma regla o de la manera siguiente: (a) Las prescripciones de una autoridad nacional pueden modificar una regla del reglamento excepto las Definiciones; las reglas de la Introducción; las Partes 2 o 7; las reglas 1, 2, 3, 5, 6, 42, 43, 47, 50, 63.3, 69, 70, 71, 72, 75, 76.2(b) o 79; una regla de un apéndice que modifique alguna de las anteriores; los Apéndices H o N, o una regla en uno de los Códigos de World Sailing enumerados en la regla 6.1. (b) El anuncio o las instrucciones de regata pueden modificar una regla del reglamento, excepto las reglas 4, 76.1 o 76.2(a), el Apéndice R y las reglas enumeradas en la regla 86.1(a). (c) Las reglas de clase pueden modificar únicamente las reglas 42, 49, 51, 52, 53, 54, 55 y 78.2."
 },
 {
-q:"PREGUNTA 82. Las balizas de la línea de salida pueden cambiarse hasta", 
-a:[ 
-"a.	la señal del recorrido",
-"b.	la señal de atención",
-"c.	la señal de preparación",
-"d.	la señal de salida"
-],
-c: [2],
-com:""
+type: "numeric-multi",
+    q: "PREGUNTA 82. Tenemos un viento del 50º y queremos montar un recorrido trapezoidal para la clase ILCA 6. Indica los rumbos de los siguientes tramos:",
+    parts: [
+      { label: "De Linea de salida a Baliza 1", correct: 50 },
+      { label: "De Baliza 1 a Baliza 2", correct: 300 },
+      { label: "De Baliza 1 a Baliza 4", correct: 230 },
+      { label: "De Baliza 3 a Baliza 4", correct: 120 },
+      { label: "De Baliza 3 a la Línea de Llegada", correct: 160 },
+      { label: "De la Línea de Llegada a Baliza 3", correct: 340 },
+      { label: "Del barco del Comite a PIN de salida", correct: 320 }
+    ],
+    com:"Directrices 5.2 para barcos sin spi y windsurfer. 110º para barcos con spi (120º)."
 },
 {
-q:"PREGUNTA 83. Si por causa de un súbito empeoramiento del tiempo, el Comité de Regata quiere parar una prueba después de la salida junto con otra que está en procedimiento de salida enviando los barcos a tierra, deberá hacer la siguiente señal:",
-a:[ 
-"a.	las banderas Inteligencia sobre H",
-"b.	las banderas N sobre H",
-"c.	las banderas N sobre X",
-"d.	las banderas N sobre 1er Repetidor"
-],
-c: [1],
-com:""
+type: "numeric-multi",
+    q: "PREGUNTA 83. Tenemos un viento del 355º y queremos montar un recorrido trapezoidal para la clase winsurfer. Indica los rumbos de los siguientes tramos:",
+    parts: [
+      { label: "De Linea de salida a Baliza 1", correct: 355 },
+      { label: "De Baliza 1 a Baliza 2", correct: 245 },
+      { label: "De Baliza 1 a Baliza 4", correct: 175 },
+      { label: "De Baliza 3 a Baliza 4", correct: 65 },
+      { label: "De Baliza 3 a la Línea de Llegada", correct: 105 },
+      { label: "De la Línea de Llegada a Baliza 3", correct: 285 },
+      { label: "Del barco del Comite a PIN de salida", correct: 265 }
+    ],
+    com:"Directrices 5.2 para barcos sin spi y windsurfer. 110º para barcos con spi (120º)."
 },
 {
-q:"PREGUNTA 84. La configuración del recorrido es un trapecio olímpico. Para asegurar que el primer barco termine dentro del tiempo límite, Vd. acorta 400 m el bastón exterior acercando la baliza 2 hacia la baliza 3. ¿Qué señal hará en la baliza 3?",
-a:[ 
-"a.	Bandera C con sonidos repetitivos.",
-"b.	Bandera C, un signo (-) y sonidos repetitivos.",
-"c.	El rumbo hacia la siguiente baliza y sonidos repetitivos.",
-"d.	Bandera C con el rumbo hacia la siguiente baliza y sonidos repetitivos."
-],
-c: [1],
-com:""
+type: "numeric-multi",
+    q: "PREGUNTA 84. Tenemos un viento del 80º y queremos montar un recorrido trapezoidal para la clase winsurfer. Indica los rumbos de los siguientes tramos:",
+    parts: [
+      { label: "De Linea de salida a Baliza 1", correct: 80 },
+      { label: "De Baliza 1 a Baliza 2", correct: 330 },
+      { label: "De Baliza 1 a Baliza 4", correct: 260 },
+      { label: "De Baliza 3 a Baliza 4", correct: 150 },
+      { label: "De Baliza 3 a la Línea de Llegada", correct: 190 },
+      { label: "De la Línea de Llegada a Baliza 3", correct: 10 },
+      { label: "Del barco del Comite a PIN de salida", correct: 350 }
+    ],
+    com:"Directrices 5.2 para barcos sin spi y windsurfer. 110º para barcos con spi (120º)."
 },
 {
-q:"PREGUNTA 85. El Comité de Regata observa que un barco ha tocado una baliza de salida antes de salir sin aceptar la penalización requerida. ¿Cuál de las siguientes afirmaciones es correcta?",
-a:[ 
-"a.	El barco debe ser clasificado DNS 'ya que no se ha exonerado",
-"b.	El Comité de Regata puede decidir descalificar al barco sin audiencia porque no ha salido correctamente.",
-"c.	El Comité de Regata decide hacer una protesta contra el barco por tocar una baliza de salida antes de salir",
-"d.	El Comité de Regata no emprende ninguna acción ya que solamente otro barco puede hacer una protesta por infracciones de la Parte 3°"
-],
-c: [2],
-com:""
+type: "numeric-multi",
+    q: "PREGUNTA 85. Tenemos un viento del 80º y queremos montar un recorrido trapezoidal para la clase 420. Indica los rumbos de los siguientes tramos:",
+    parts: [
+      { label: "De Linea de salida a Baliza 1", correct: 80 },
+      { label: "De Baliza 1 a Baliza 2", correct: 320 },
+      { label: "De Baliza 1 a Baliza 4", correct: 260 },
+      { label: "De Baliza 3 a Baliza 4", correct: 140 },
+      { label: "De Baliza 3 a la Línea de Llegada", correct: 200 },
+      { label: "De la Línea de Llegada a Baliza 3", correct: 20 },
+      { label: "Del barco del Comite a PIN de salida", correct: 350 }
+    ],
+    com:"Directrices 5.2 para barcos sin spi y windsurfer. 110º para barcos con spi (120º)."
 },
 {
-q:"PREGUNTA 86. Un barco toca una baliza de llegada cuando está cruzando la línea de llegada. ¿Cuál de lo siguiente es correcto?",
-a:[ 
-"a.	El barco se exonera tan pronto como da un giro alrededor de la baliza de llegada.",
-"b.	El barco debe aceptar su penalización, volver completamente al lado del recorrido de la línea de llegada y terminar.",
-"c.	Debe aceptar su penalización en el lado del recorrido de la línea de llegada y terminar.",
-"d.	Debe dar dos completos de 360° y terminar."
-],
-c: [1],
-com:""
+type: "numeric-multi",
+    q: "PREGUNTA 86. Tenemos un viento del 355º y queremos montar un recorrido trapezoidal para la clase 420. Indica los rumbos de los siguientes tramos:",
+    parts: [
+      { label: "De Linea de salida a Baliza 1", correct: 355 },
+      { label: "De Baliza 1 a Baliza 2", correct: 235 },
+      { label: "De Baliza 1 a Baliza 4", correct: 175 },
+      { label: "De Baliza 3 a Baliza 4", correct: 55 },
+      { label: "De Baliza 3 a la Línea de Llegada", correct: 115 },
+      { label: "De la Línea de Llegada a Baliza 3", correct: 295 },
+      { label: "Del barco del Comite a PIN de salida", correct: 265 }
+    ],
+    com:"Directrices 5.2 para barcos sin spi y windsurfer. 110º para barcos con spi (120º)."
 },
 {
-q:"PREGUNTA 87. Un barco está en regata hasta el momento en que:",
-a:[ 
-"a.	deja el área de regata.",
-"b.	no tiene más obligaciones hacia los barcos que están todavía regateando.",
-"c.	termina y deja libre la línea y las balizas de llegada.",
-"d.	cualquier parte de su casco, tripulación o equipo en posición normal cruza la línea de llegada en dirección de la última baliza del recorrido."
-],
-c: [2],
-com:""
+type: "numeric-multi",
+    q: "PREGUNTA 87. Tenemos un viento del 50º y queremos montar un recorrido trapezoidal para la clase 420. Indica los rumbos de los siguientes tramos:",
+    parts: [
+      { label: "De Linea de salida a Baliza 1", correct: 50 },
+      { label: "De Baliza 1 a Baliza 2", correct: 290 },
+      { label: "De Baliza 1 a Baliza 4", correct: 230 },
+      { label: "De Baliza 3 a Baliza 4", correct: 110 },
+      { label: "De Baliza 3 a la Línea de Llegada", correct: 170 },
+      { label: "De la Línea de Llegada a Baliza 3", correct: 350 },
+      { label: "Del barco del Comite a PIN de salida", correct: 320 }
+    ],
+    com:"Directrices 5.2 para barcos sin spi y windsurfer. 110º para barcos con spi (120º)."
 },
 {
-q:"PREGUNTA 88. Esta pregunta es sobre resultados de regata y puntuación. ¿Cuál de las siguientes afirmaciones es la correcta?",
-a:[ 
-"a.	Todos los barcos cuya inscripción haya sido aceptada y hayan cumplido sus obligaciones de inscripción (si las hubiere), deberían recibir una puntuación por cada prueba y una puntuación final.",
-"b.	Sólo los barcos que hayan navegado en una prueba y terminado, deberán recibir una puntuación por esa prueba.",
-"c.	Sólo los barcos admitidos como salidos en una o más pruebas deben recibir puntuación.",
-"d.	Todos los barcos que hayan enviado su solicitud de inscripción deberán ser puntuados, sin tener en cuenta si han llegado a la regata o pagaron sus derechos de inscripción."
-],
-c: [0],
-com:""
+type: "numeric-multi",
+    q: "PREGUNTA 88. Tenemos un viento del 270º y queremos montar un recorrido trapezoidal para la clase 420. Indica los rumbos de los siguientes tramos:",
+    parts: [
+      { label: "De Linea de salida a Baliza 1", correct: 270 },
+      { label: "De Baliza 1 a Baliza 2", correct: 150 },
+      { label: "De Baliza 1 a Baliza 4", correct: 90 },
+      { label: "De Baliza 3 a Baliza 4", correct: 330 },
+      { label: "De Baliza 3 a la Línea de Llegada", correct: 30 },
+      { label: "De la Línea de Llegada a Baliza 3", correct: 210 },
+      { label: "Del barco del Comite a PIN de salida", correct: 180 }
+    ],
+    com:"Directrices 5.2 para barcos sin spi y windsurfer. 110º para barcos con spi (120º)."
 },
 {
-q:"PREGUNTA 89. La longitud de una puerta debe ser:",
-a:[ 
-"a.	4 esloras",
-"b.	Depende de si son barcos con Spi o sin Spi",
-"c.	6 esloras",
-"d.	10 esloras"
-],
-c: [3],
-com:""
+type: "numeric-multi",
+    q: "PREGUNTA 89. Tenemos un viento del 180º y queremos montar un recorrido trapezoidal para la clase 420. Indica los rumbos de los siguientes tramos:",
+    parts: [
+      { label: "De Linea de salida a Baliza 1", correct: 180 },
+      { label: "De Baliza 1 a Baliza 2", correct: 60 },
+      { label: "De Baliza 1 a Baliza 4", correct: 360 },
+      { label: "De Baliza 3 a Baliza 4", correct: 240 },
+      { label: "De Baliza 3 a la Línea de Llegada", correct: 300 },
+      { label: "De la Línea de Llegada a Baliza 3", correct: 120 },
+      { label: "Del barco del Comite a PIN de salida", correct: 90 }
+    ],
+    com:"Directrices 5.2 para barcos sin spi y windsurfer. 110º para barcos con spi (120º)."
 },
 {
-q:"PREGUNTA 90. Después de publicar en el TOA las clasificaciones de una prueba, el comité de regata se da cuenta de que según sus notas un barco ha sido clasificado erróneamente. ¿Qué debe hacer?",
-a:[ 
-"a.	Pide al comité de protestas que corrija el error",
-"b.	Pide una reparación para el barco",
-"c.	Corrige directamente el error publicando una nueva clasificación.",
-"d.	Espera a que el barco haga una solicitud."
-],
-c: [2],
-com:""
+type: "numeric-multi",
+    q: "PREGUNTA 90. Tenemos un viento del 90º y queremos montar un recorrido trapezoidal para la clase 420. Indica los rumbos de los siguientes tramos:",
+    parts: [
+      { label: "De Linea de salida a Baliza 1", correct: 90 },
+      { label: "De Baliza 1 a Baliza 2", correct: 330 },
+      { label: "De Baliza 1 a Baliza 4", correct: 270 },
+      { label: "De Baliza 3 a Baliza 4", correct: 150 },
+      { label: "De Baliza 3 a la Línea de Llegada", correct: 210 },
+      { label: "De la Línea de Llegada a Baliza 3", correct: 30 },
+      { label: "Del barco del Comite a PIN de salida", correct: 360 }
+    ],
+    com:"Directrices 5.2 para barcos sin spi y windsurfer. 110º para barcos con spi (120º)."
 },
 {
-q:"PREGUNTA 91. La baliza 1 debe estar en posición:",
-a:[ 
-"a.	Desde la señal de atención",
-"b.	Desde la señal de preparación",
-"c.	Desde la salida",
-"d.	No hay regla específica sobre ello"
-],
-c: [3],
-com:""
+type: "numeric-multi",
+    q: "PREGUNTA 91. Tenemos un viento del 280º y queremos montar un recorrido de triangulo equilatero con 60º de angulo interior para la clase ILCA 7. Indica los rumbos de los siguientes tramos:",
+    parts: [
+      { label: "De Linea de salida a Baliza 1", correct: 280 },
+      { label: "De Baliza 1 a Baliza 2", correct: 160 },
+      { label: "De Baliza 2 a Baliza 3", correct: 40 },
+      { label: "De Baliza 3 a Baliza 2", correct: 220 },
+      { label: "Del barco del Comite a PIN de salida", correct: 190 },
+      { label: "Del PIN de salida al barco del Comite", correct: 10 }
+    ],
+    com:"Equilatero, todos los angulos iguales. En un triangulo, todos sus angulos interiores han de sumar 180º."
 },
 {
 q:"PREGUNTA 92. En una regata de monotipos, en la que el recorrido es barlovento-sotavento, el viento está disminuyendo rápidamente, y la flota se encuentra navegando hacia la baliza de barlovento por segunda vez. No estás seguro de que pueden acabar la popa con esa intensidad de viento. ¿Qué harías?",
@@ -960,72 +999,71 @@ c: [2],
 com:""
 },
 {
-q:"PREGUNTA 93. Las instrucciones de regatas establecen que no se dará una señal de atención antes de 45 minutos después de largar la bandera Gl Gallardete de inteligencia en tierra. La salida de la primera prueba está programada a las 12:00 horas y el comité de regatas iza en tierra Inteligencia sobre numeral 2 a las 11:30. A las 13:30 horas arria la inteligencia sobre numeral 2 en tierra. ¿A partir de qué hora se puede dar una señal de atención?",
+q:"PREGUNTA 93. Las instrucciones de regatas establecen que no se dará una señal de atención antes de 30 minutos después de largar la bandera Gl Gallardete de inteligencia en tierra. La salida de la primera prueba está programada a las 12:00 horas y el comité de regatas iza en tierra Inteligencia sobre numeral 2 a las 11:30. A las 13:30 horas arria la inteligencia sobre numeral 2 en tierra. ¿A partir de qué hora se puede dar una señal de atención?",
 a:[ 
 "a.	13:30 horas",
 "b.	14:00 horas",
-"c.	15:30 horas",
-"d.	14:15 horas"
-],
-c: [3],
-com:""
-},
-{
-q:"PREGUNTA 94. Un comité de regata que quiere protestar a un barco por hechos ocurridos en el área de regata no tiene que cumplir con el tiempo límite para protestar",
-a:[ 
-"Verdadero",
-"Falso"
+"c.	14:15 horas",
+"d.	15:30 horas"
 ],
 c: [1],
 com:""
 },
 {
-q:"PREGUNTA 95. Tan pronto como un barco cruza con la proa la línea de llegada, puede usar el motor para dejar la línea y volver a puerto",
+q:"PREGUNTA 94. Un comité de regata que quiere protestar a un barco por hechos ocurridos en el área de regata tiene que cumplir con el tiempo límite para protestar",
 a:[ 
 "Verdadero",
 "Falso"
 ],
-c: [1],
+c: [0],
 com:""
 },
 {
-q:"PREGUNTA 96. La regla -el fallo de una señal acústica no se tomará en cuenta - aplica a cualquier señal del Comité de Regata.",
+type: "numeric-multi",
+q: "PREGUNTA 95. Tenemos un viento del 35º y queremos montar un recorrido de triangulo equilatero con 60º de angulo interior para la clase ILCA 7. Indica los rumbos de los siguientes tramos:",
+    parts: [
+      { label: "De Linea de salida a Baliza 1", correct: 35 },
+      { label: "De Baliza 1 a Baliza 2", correct: 275 },
+      { label: "De Baliza 2 a Baliza 3", correct: 155 },
+      { label: "De Baliza 3 a Baliza 2", correct: 335 },
+      { label: "Del barco del Comite a PIN de salida", correct: 305 },
+      { label: "Del PIN de salida al barco del Comite", correct: 125 }
+    ],
+    com:"Equilatero, todos los angulos iguales. En un triangulo, todos sus angulos interiores han de sumar 180º."
+},
+{
+q:"PREGUNTA 96. La regla -el fallo de una señal acústica no se tomará en cuenta - solo aplica a las señales del Comité de Regata del proceso de salida.",
 a:[ 
 "Verdadero",
 "Falso"
 ],
-c: [1],
+c: [0],
 com:""
 },
 {
-q:"PREGUNTA 97. El recorrido deberá ser señalado no más tarde que la señal de preparación",
+q:"PREGUNTA 97. El recorrido deberá ser señalado no más tarde que la señal de atención",
 a:[ 
 "Verdadero",
 "Falso"
 ],
-c: [1],
+c: [0],
 com:"El recorrido deberá ser señalado no más tarde que la señal de ATENCION"
 },
 {
-q:"PREGUNTA 98. Las instrucciones de regata pueden indicar intervalos de tiempo mayores o menores entre las señales de atención y preparación sin indicar que cambia la regla 26",
-a:[ 
-"Verdadero",
-"Falso"
-],
-c: [0],
-com:""
+type: "numeric-multi",
+q: "PREGUNTA 98. Tenemos un viento del 110º y queremos montar un recorrido de triangulo equilatero con 60º de angulo interior para la clase ILCA 7. Indica los rumbos de los siguientes tramos:",
+    parts: [
+      { label: "De Linea de salida a Baliza 1", correct: 110 },
+      { label: "De Baliza 1 a Baliza 2", correct: 350 },
+      { label: "De Baliza 2 a Baliza 3", correct: 230 },
+      { label: "De Baliza 3 a Baliza 2", correct: 50 },
+      { label: "Del barco del Comite a PIN de salida", correct: 20 },
+      { label: "Del PIN de salida al barco del Comite", correct: 200 }
+    ],
+    com:"Equilatero, todos los angulos iguales. En un triangulo, todos sus angulos interiores han de sumar 180º."
 },
 {
-q:"PREGUNTA 99. El Comité de Regata puede reemplazar una baliza perdida por otra similar sin señalarlo a los competidores.",
-a:[ 
-"Verdadero",
-"Falso"
-],
-c: [0],
-com:""
-},
-{
-q:"PREGUNTA 100. El Comité de Regata puede acortar el recorrido solamente si está especificado en las Instrucciones de Regata",
+q:"PREGUNTA 99. El Comité de Regata no puede reemplazar una baliza perdida por otra similar sin señalarlo a los competidores.",
 a:[ 
 "Verdadero",
 "Falso"
@@ -1034,7 +1072,7 @@ c: [1],
 com:""
 },
 {
-q:"PREGUNTA 101. Un barco no necesita cruzar la línea de llegada completamente para terminar.",
+q:"PREGUNTA 100. El Comité de Regata puede acortar el recorrido aunque no está especificado en las Instrucciones de Regata",
 a:[ 
 "Verdadero",
 "Falso"
@@ -1043,7 +1081,7 @@ c: [0],
 com:""
 },
 {
-q:"PREGUNTA 102. Un barco que rellena una protesta puede volver a la Oficina de Regata y retirarla con tal de que lo haga antes de terminar el tiempo para protestar",
+q:"PREGUNTA 101. Un barco necesita cruzar la línea de llegada completamente para terminar.",
 a:[ 
 "Verdadero",
 "Falso"
@@ -1052,7 +1090,7 @@ c: [1],
 com:""
 },
 {
-q:"PREGUNTA 103. Un barco que en el momento de su señal de salida con bandera P tiene el casco completamente en el lado de pre-salida con un tripulante en el trapecio en el lado del recorrido sale correctamente.",
+q:"PREGUNTA 102. Un barco que rellena una protesta NO puede volver a la Oficina de Regata y retirarla con tal de que lo haga antes de terminar el tiempo para protestar",
 a:[ 
 "Verdadero",
 "Falso"
@@ -1061,7 +1099,7 @@ c: [0],
 com:""
 },
 {
-q:"PREGUNTA 104. En una regata donde se establece la penalización por puntuación RRV 44.3. Si un barco toca varias balizas de recorrido, ¿necesita tomar una penalización de puntuación por cada incidente?",
+q:"PREGUNTA 103. Un barco que en el momento de su señal de salida con bandera NEGRA tiene el casco completamente en el lado de pre-salida con un tripulante en el trapecio en el lado del recorrido sale correctamente.",
 a:[ 
 "Verdadero",
 "Falso"
@@ -1070,22 +1108,35 @@ c: [0],
 com:""
 },
 {
-q:"PREGUNTA 105. El comité de regatas puede anular una prueba después que algún barco haya terminado",
-a:[ 
-"Verdadero",
-"Falso"
-],
-c: [0],
-com:""
+type: "numeric-multi",
+q: "PREGUNTA 104. Tenemos un viento del 350º y queremos montar un recorrido de triangulo equilatero con 60º de angulo interior para la clase 420. Indica los rumbos de los siguientes tramos:",
+    parts: [
+      { label: "De Linea de salida a Baliza 1", correct: 350 },
+      { label: "De Baliza 1 a Baliza 2", correct: 230 },
+      { label: "De Baliza 2 a Baliza 3", correct: 110 },
+      { label: "De Baliza 3 a Baliza 2", correct: 290 },
+      { label: "Del barco del Comite a PIN de salida", correct: 260 },
+      { label: "Del PIN de salida al barco del Comite", correct: 80 }
+    ],
+    com:"Equilatero, todos los lados iguales. En un triangulo, todos sus angulos interiores han de sumar 180º."
 },
 {
-q:"PREGUNTA 106. Un barco que está recibiendo ayuda exterior puede ser descalificado por el Comité de Regata sin audiencia",
+q:"PREGUNTA 105. El comité de regatas no puede anular una prueba después que algún barco haya terminado",
 a:[ 
 "Verdadero",
 "Falso"
 ],
 c: [1],
-com:"No, solo lo puede hacer el Comité de Protestas"
+com:""
+},
+{
+q:"PREGUNTA 106. Un barco que está recibiendo ayuda exterior puede ser descalificado por el Comité de Protestas sin audiencia",
+a:[ 
+"Verdadero",
+"Falso"
+],
+c: [0],
+com:"SI, solo lo puede hacer el Comité de Protestas y no el de Regatas"
 },
 {
 q:"PREGUNTA 107. Si la bandera Y es izada en el mar junto con o antes de la señal de atención, los regatistas deberán hacer uso de flotación personal desde la señal de atención hasta que terminen.",
@@ -1268,44 +1319,885 @@ a:[
 ],
 c: [2],
 com:"El barco sigue en regata, pues debe deja libre la línea y las balizas de llegada"
+},
+{
+q:"PREGUNTA 125. Durante la reunión de patrones, previa al inicio de la regata, se decide realizar algunas modificaciones a las instrucciones de regatas y así se les comunica a los participantes, describiendo la naturaleza de las mismas. Hecho esto, ¿entran éstas en vigor automáticamente?.",
+a:[
+"Verdadero",
+"Falso"
+],
+c: [1],
+com:""
+},
+{
+q:"PREGUNTA 126. ¿Podemos modificar una Prescripción de la Real Federación Española de Vela en el Anuncio de Regatas?",
+a:[
+"Verdadero",
+"Falso"
+],
+c: [1],
+com:"La prescripción de la RFEV, NO permite su modificación. RRV 88.2."
+},
+{
+q:"PREGUNTA 127. En caso de discrepancia entre el Oficial de Regatas y el Presidente del Comité de Protestas sobre la redacción de las instrucciones de regatas. ¿Qué opinión prevalecerá?",
+a:[
+"La del Oficial de Regatas",
+"La del Presidente del Comité de Protestas"
+],
+c: [0],
+com:"La del comité de regatas que es el encargado de publicar según la regla 90.2 siguiendo y respetando la regla J2."
+},
+{
+q:"PREGUNTA 128. En cumplimiento de una instrucción de regata que establece que: a ser posible se comunicará en la baliza 1 del recorrido los barcos OCS, el Comité de Regatas comunica a un barco ésta situación OCS, tras lo cual el barco se retira. Después de esto el C. Regatas se da cuenta que ha cometido un error al ser otro el barco OCS. El regatista no solicita nada. ¿Debe hacer algo el Comité de Regatas?",
+a:[
+"No debe hacer nada",
+"Solicitar la reparación para ese barco"
+],
+c: [1],
+com:""
+},
+{
+q:"PREGUNTA 129. Un Comité de Regatas es testigo de una infracción producida durante el transcurso de una prueba entre dos barcos. Al llegar a tierra comprueba que no existe protesta alguna. ¿Puede en ese momento el Comité de Regatas protestar a esos barcos?",
+a:[
+"Verdadero",
+"Falso"
+],
+c: [0],
+com:"Si, según la regla RRV 60,1"
+},
+{
+q:"PREGUNTA 130. Al comprobar en la inscripción que un barco está patrocinado por una firma que es de clara competencia con el patrocinador oficial de la regata. ¿Puede el Comité de Regatas rechazar su inscripción?",
+a:[
+"SI",
+"NO"
+],
+c: [1],
+com:"Si el barco cumple con el Código de Publicidad de World Sailing un comité de regata o la autoridad organizadora no pueden rechazar o anular una inscripción, RRV 76.2.a"
+},
+{
+q:"PREGUNTA 131. Después de la señal de salida el Comité de Regatas es insultado por un participante que ha llegado tarde a la línea de salida. ¿Cómo debe actuar el Oficial de Regatas?",
+a:[
+"Verdadero",
+"Falso"
+],
+c: [1],
+com:"Presentar un informe al Comité de Protestas solicitándole que actué"
+},
+{
+q:"PREGUNTA 132. ¿Cuál es el tiempo límite de haberlo, para que el C.R. presente protestas de un incidente observado en la zona de regatas, si nada hay al respecto en las instrucciones de regatas?",
+a:[
+"1 hora desde que termine el primero",
+"1 hora desde que termine el ultimo",
+"2 horas desde que termine el primero",
+"2 horas desde que termine el ultimo"
+],
+c: [3],
+com:"RRV 60.3-B, Si no dice nada las IR, para protestas respecto de un incidente observado en la zona de regatas, dos horas después de que termine el último barco en la prueba, o para otras protestas, dos horas después que la información relevante esté a disposición del protestante."
+},
+{
+q:"PREGUNTA 133. ¿Cuál es el tiempo límite de haberlo, para que el C.R. presente protestas de un incidente observado despues de la regata, como una protesta de medición, si nada hay al respecto en las instrucciones de regatas?",
+a:[
+"1 hora desde que termine el ultimo",
+"1 hora desde que la información relevante esté a disposición del protestante",
+"2 horas desde que termine el ultimo",
+"2 horas desde que la información relevante esté a disposición del protestante"
+],
+c: [3],
+com:"RRV 60.3-B, Si no dice nada las IR, para protestas respecto de un incidente observado en la zona de regatas, dos horas después de que termine el último barco en la prueba, o para otras protestas, dos horas después que la información relevante esté a disposición del protestante."
+},
+{
+q:"PREGUNTA 134. Al llegar a la sede de la regata y tras leer el Anuncio de Regatas y las Instrucciones de Regatas observamos que hay discrepancias en determinados puntos. ¿Qué debemos hacer?",
+a:[
+"Nada, las instrucciones prevalecerán sobre el anuncio",
+"Nada, el anuncio prevalecerá sobre las instrucciones",
+"Nada, se aplicara la que sea más equitativa",
+"Eliminar cualquier discrepancia, realizando las oportunas modificaciones y publicarlo en el TOA"
+],
+c: [3],
+com:""
+},
+{
+q:"PREGUNTA 135. A que comité(s) corresponde aceptar las inscripciones de los participantes.",
+a:[
+"La autoridad organizadora",
+"La autoridad organizadora y/o El comite de regatas",
+"El comite de regatas",
+"El comite de protestas"
+],
+c: [1],
+com:""
+},
+{
+q:"PREGUNTA 136. A que comité(s) corresponde resolver las solicitudes de revisión de resultados.",
+a:[
+"La autoridad organizadora",
+"La autoridad organizadora y/o El comite de regatas",
+"El comite de regatas",
+"El comite de protestas"
+],
+c: [2],
+com:""
+},
+{
+q:"PREGUNTA 137. A que comité(s) corresponde resolver las solicitudes de reparación.",
+a:[
+"La autoridad organizadora",
+"La autoridad organizadora y/o El comite de regatas",
+"El comite de regatas",
+"El comite de protestas"
+],
+c: [3],
+com:""
+},
+{
+q:"PREGUNTA 138. A que comité(s) corresponde establecer las clasificaciones.",
+a:[
+"La autoridad organizadora",
+"La autoridad organizadora y/o El comite de regatas",
+"El comite de regatas",
+"El comite de protestas"
+],
+c: [3],
+com:""
+},
+{
+q:"PREGUNTA 139. Siendo el Comité de Regatas testigo del abordaje de una baliza por parte de un barco. ¿Tiene el C.R. obligación de protestar contra ese barco?",
+a:[
+"Verdadero",
+"Falso"
+],
+c: [1],
+com:""
+},
+{
+q:"PREGUNTA 140. Cuando el Comité de Regatas va a publicar el tiempo límite para protestas de acuerdo con las instrucciones de regatas, comprueba que dicho plazo ha expirado y todavía queda una gran cantidad de barcos que aún no han podido llegar a tierra. ¿Qué debe hacer el Comité de Regatas?",
+a:[
+"Ampliar ese plazo y publicarlo",
+"Publicar el plazo previsto y que el C.Protestas estudie cada caso y decida si hay motivos para ampliarlo"
+],
+c: [1],
+com:""
+},
+{
+q:"PREGUNTA 141. Puede establecer el Comité de Regatas en sus instrucciones de regatas que no se podrá protestar en esa regata.",
+a:[
+"Verdadero",
+"Falso"
+],
+c: [1],
+com:""
+},
+{
+q:"PREGUNTA 142. El Oficial de Regatas recibe un informe del medidor oficial donde se dice que un barco no cumple con una regla de su clase. El oficial de Regatas deberá",
+a:[
+"Presentar una protesta",
+"Penalizar al barco",
+"Llamar la atención al regatista puesto que considera es una infracción menor que no afecta al rendimiento del barco."
+],
+c: [0],
+com:""
+},
+{
+q:"PREGUNTA 143. Las Instrucciones de Regatas pueden modificar: El Reglamento de Regatas en su totalidad.",
+a:[
+"Verdadero",
+"Falso"
+],
+c: [1],
+com:""
+},
+{
+q:"PREGUNTA 144. Las Instrucciones de Regatas pueden modificar: El Anuncio de Regatas.",
+a:[
+"Verdadero",
+"Falso"
+],
+c: [0],
+com:""
+},
+{
+q:"PREGUNTA 145. Las Instrucciones de Regatas pueden modificar: Las Reglas de Clase.",
+a:[
+"Verdadero",
+"Falso"
+],
+c: [0],
+com:"Solo si la propia regla lo permite o con permiso de la clase."
+},
+{
+q:"PREGUNTA 146. Las Instrucciones de Regatas pueden modificar: Las Prescripciones de la Autoridad Nacional RFEV.",
+a:[
+"Verdadero",
+"Falso"
+],
+c: [1],
+com:""
+},
+{
+q:"PREGUNTA 147. Las Instrucciones de Regatas pueden modificar: Las Definiciones del RRV.",
+a:[
+"Verdadero",
+"Falso"
+],
+c: [1],
+com:""
+},
+{
+q:"PREGUNTA 148. Las Instrucciones de Regatas pueden modificar: Las Señales de Regatas.",
+a:[
+"Verdadero",
+"Falso"
+],
+c: [0],
+com:""
+},
+{
+q:"PREGUNTA 149. Las Instrucciones de Regatas pueden modificar: Las Partes 5 y 6 del RRV.",
+a:[
+"Verdadero",
+"Falso"
+],
+c: [0],
+com:"NO EN SU TOTALIDAD"
+},
+{
+q:"PREGUNTA 150. Indica quien es el responsable de redactar y publicar: Las Instrucciones de Regatas.",
+a:[
+"La autoridad organizadora",
+"El comité de regatas",
+"El comité de protestas"
+],
+c: [1],
+com:""
+},
+{
+q:"PREGUNTA 151. Indica quien es el responsable de redactar y publicar: El Anuncio de Regatas.",
+a:[
+"La autoridad organizadora",
+"El comité de regatas",
+"El comité de protestas"
+],
+c: [0],
+com:""
+},
+{
+q:"PREGUNTA 152. Indica quien es el responsable de redactar y publicar: Las modificaciones a las Reglas.",
+a:[
+"La autoridad organizadora",
+"El comité de regatas",
+"El comité de protestas"
+],
+c: [1],
+com:""
+},
+{
+q:"PREGUNTA 153. Indica quien es el responsable de redactar y publicar: Tiempo Límite para protestas.",
+a:[
+"La autoridad organizadora",
+"El comité de regatas",
+"El comité de protestas"
+],
+c: [1],
+com:""
+},
+{
+q:"PREGUNTA 154. ¿Puede la Peña del Real Madrid ser la Autoridad Organizadora de una Regata?.",
+a:[
+"Verdadero",
+"Falso"
+],
+c: [1],
+com:"RRV 89.1"
+},
+{
+q:"PREGUNTA 155. Al inscribirse un barco en una regata donde se exige presentar el certificado de medición del barco en el momento del registro, el patrón dice que lo olvidó en su casa. ¿Cómo actuará el C.R.?",
+a:[
+"Lo dejará participar si entrega una declaración firmada afirmando que lo tiene y se obliga a entregarlo antes de que termine el evento",
+"No lo dejará participar"
+],
+c: [0],
+com:""
+},
+{
+q:"PREGUNTA 156. Al inscribirse un barco en una regata donde se exige presentar el certificado de medición del barco en el momento del registro, el patrón dice que lo olvidó en su casa. Entrega una declaración firmada afirmando que lo tiene y se obliga a entregarlo antes de la salida del último día de la regata o de la primera serie, lo que suceda antes. Si no lo entrega o no se puede verificar",
+a:[
+"El comité de regatas lo descalificará automáticamente de todas las pruebas",
+"El comité de regatas presentará una protesta ante el comité de protestas para que este lo descalifique sin audiencia de todas las pruebas"
+],
+c: [0],
+com:"RRV 78.2 Cuando una regla exija que se exhiba un certificado válido o se verifique su existencia antes de que un barco regatee y no lo pueda hacer, el barco podrá regatear a condición de que el comité apropiado reciba una declaración firmada por el responsable afirmando que existe un certificado válido. El barco presentará el certificado o hará lo necesario para que el comité apropiado pueda verificar su existencia antes de la salida del último día de la regata o de la primera serie, lo que suceda antes. La penalización por infringir esta regla es la descalificación sin previa audiencia en todas las pruebas de la regata. RRV A5.1 Cuando un comité de regata determine que un barco: (a) no navegó el recorrido, (b) no cumplió con las reglas 30.2, 30.3, 30.4 o 78.2, o (c) se retiró o se penalizó conforme a la regla 44.3(a), puntuará al barco consecuentemente sin una audiencia. Únicamente el comité de protestas puede realizar otras acciones sobre la puntuación que empeoren la puntuación de un barco."
+},
+{
+q:"PREGUNTA 157.Las Instrucciones de Regatas no establecen el Sistema de Puntuación que se empleará en la regata, ¿Qué debemos hacer o aplicar?",
+a:[
+"El sistema de Puntuación Baja",
+"Podemos usar cualquier otro sistema de puntuación"
+],
+c: [0],
+com:"Según la regla 90.3-A siempre debemos usar el sistema de Puntuación Baja que establece el Apéndice A, a no ser que las instrucciones especifiquen otro sistema."
+},
+{
+q:"PREGUNTA 158. Si decimos que una regata se regirá por las Reglas tal como se definen en el RRV, ¿A que reglas nos referimos?",
+a:[
+"Al RRV",
+"Las reglamentaciones de World Sailing",
+"Las prescripciones de la autoridad nacional",
+"Las reglas de la clase",
+"El Anuncio de Regata",
+"Las Instrucciones de Regata",
+"Cualquier otro documento que rija el evento",
+"Todas son correctas"
+],
+c: [7],
+com:""
+},
+{
+q:"PREGUNTA 159. Las instrucciones de regatas dice que están programadas 2 pruebas en la regata debiéndose completar una para que sea válida. Nada más se dice acerca del sistema de puntuación. ¿Haremos algún descarte?",
+a:[
+"SI",
+"NO"
+],
+c: [0],
+com:"SI descartaríamos el peor resultado porque según el Apéndice A2.1, se descartaría el peor resultado de la serie a no ser que las instrucciones digan otra cosa"
+},
+{
+q:"PREGUNTA 160. Las instrucciones de regatas dice que están programadas 4 pruebas en la regata debiéndose completar una para que sea válida. Nada más se dice acerca del sistema de puntuación.En caso de empates, según se explica en el apéndice A8, se ordenaran los resultados de mejor a peor y en donde tengamos la primera diferencia, el empate se resolverá a favor del que tenga mejor puntuación, en caso de persistir el empate se tomará la última prueba corrida, resolviéndose a favor del que mejor resultado tenga en esa prueba.",
+a:[
+"Se usan las pruebas descartadas",
+"NO se usan nunca las pruebas descartadas",
+"NO se usan nunca las pruebas descartadas pero si se usarían en el caso de tomar la ultima prueba"
+],
+c: [0],
+com:""
+},
+{
+q:"PREGUNTA 161. Empleándose la regla 26 en el sistema de salidas, unos segundos después de la señal de atención se acerca un regatista al barco del C.R. y le pregunta por el recorrido a navegar, al cual, el oficial le contesta. Un minuto después de esto se acerca otro regatista a preguntarle lo mismo y a éste el oficial se niega a responderle. ¿Es correcto?",
+a:[
+"SI",
+"NO"
+],
+c: [0],
+com:"El motivo es que con el segundo regatista ya se ha pitado la señal de preparación, porque cuando pregunta ya ha pasado un minuto y algunos segundos desde la señal de atención y la señal de preparación se da en el minuto 4, mientras que el primero la pregunta la hizo en la señal de atención. Según la definición un barco está en regata desde la señal de preparación."
+},
+{
+q:"PREGUNTA 162. Un barco cruza la línea de llegada en tercera posición, nosotros por el seguimiento que llevamos de la prueba tenemos conocimiento que no ha tomado una de las balizas del recorrido. ¿Cómo actuaremos?",
+a:[
+"Le daremos la llegada y posteriormente pasaremos UNA PROTESTA al comité de protestas.",
+"Le clasificaremos directamente como NSC"
+],
+c: [1],
+com:""
+},
+{
+q:"PREGUNTA 163. Las instrucciones de regata dicen: La línea de llegada será entre mástiles arbolando banderas naranjas en las balizas de llegada. ¿Qué banderas tenemos que poner?",
+a:[
+"Una bandera naranja en cada mástil",
+"Una bandera naranja en cada mástil y la bandera azul en el barco de llegadas"
+],
+c: [1],
+com:""
+},
+{
+q:"PREGUNTA 164. Desde que momento comienza a correr el tiempo a efectos de emplear el tiempo límite para la prueba establecido en las instrucciones de regata.",
+a:[
+"Desde el momento que se da la señal de atención",
+"Desde el momento que se da la señal de preparación",
+"Desde el momento que se da la señal de salida"
+],
+c: [2],
+com:""
+},
+{
+q:"PREGUNTA 165. Al final de una regata nos encontramos con las siguientes puntuaciones de dos barcos, nada se habla sobre puntuación en las I.R.. Con estos datos, ¿Qué barco gana?!",
+img:"img/p165.png",
+a:[
+"Barco A",
+"Barco B"
+],
+c: [1],
+com:"Ganará el barco B, ya que tras aplicar el primer sistema descrito en el apéndice A8 para los empates. Los dos barcos siguen empatados según A8.1, tras ordenar las puntuaciones de menor a mayor no hay diferencias. Por lo que pasaremos al A8.2, en la cual vemos que en la última prueba ha sido el barco B el que ha obtenido mejor resultado, aunque en esa manga sea el descarte del barco A."
+},
+  {
+    type: "numeric-multi",
+    q: "PREGUNTA 166. Como debemos clasificar los siguientes casos:",
+    parts: [
+      { label: "El barco que no sale del puerto", correct: "DNC" },
+      { label: "El barco que abandona la prueba en reconocimiento de una infracción", correct: "RET" },
+      { label: "El barco que vuelca y no puede continuar la prueba", correct: "DNF" },
+      { label: "El barco que abandona el área de regatas dos minutos antes de la salida", correct: "DNS" },
+      { label: "El barco que esta fuera de linea con bandera U", correct: "UFD" },
+      { label: "El barco que esta fuera de linea con bandera NEGRA", correct: "BFD" },
+      { label: "El barco que esta pizarra con NEGRA y vuelve a tomar la salida", correct: "DNE" }
+    ],
+    com:""
+  },
+{
+q:"PREGUNTA 167. El reglamento considera que se ha tocado la baliza: Cuando se engancha la orza con el cabo de fondeo.",
+a:[
+"Verdadero",
+"Falso"
+],
+c: [1],
+com:"NO ha tocado porque el cabo de fondeo no tiene consideración de baliza"
+},
+{
+q:"PREGUNTA 168. El reglamento considera que se ha tocado la baliza: Cuando se engancha la orza con el cabo y se toca la baliza solo con la botavara.",
+a:[
+"Verdadero",
+"Falso"
+],
+c: [0],
+com:"SI porque al final tocamos la baliza con la botavara que es una parte del barco"
+},
+{
+q:"PREGUNTA 169. El reglamento considera que se ha tocado la baliza: Cuando se toca la baliza con la espalda del patrón.",
+a:[
+"Verdadero",
+"Falso"
+],
+c: [0],
+com:"SI porque el tripulante está considerado parte del barco"
+},
+{
+q:"PREGUNTA 170. Señala los casos en que el C.R. cambiará la posición de llegada de un barco clasificándolo de otra forma. No navegó el recorrido, no cumplió con las reglas 30.2, 30.3, 30.4 o 78.2, o se retiró o se penalizó conforme a la regla 44.3(a)",
+a:[
+"Verdadero",
+"Falso"
+],
+c: [0],
+com:""
+},
+{
+q:"PREGUNTA 171. Un barco cruza la línea de llegada y el CR le da la entrada, en ese momento aborda el boyarín de llegada. ¿Se considera que ha cometido una infracción?",
+a:[
+"Verdadero",
+"Falso"
+],
+c: [0],
+com:"SI ha cometido una infracción, y tendrá que penalizarse, volver a lado del recorrido. y volver a entrar, PUESTO QUE AUNQUE HA TERMINADO AUN SIGUE EN REGATA"
+},
+{
+q:"PREGUNTA 172. En una entrada a sotavento del recorrido, un barco vuelca 10 metros antes de la línea de llegada, mientras los tripulantes intentan adrizar el barco, éstos cruzan la línea de llegada. ¿Se considera que dicho barco ha entrado?",
+a:[
+"Verdadero",
+"Falso"
+],
+c: [0],
+com:"UN BARCO VOLCADO SE CONSIDERA EN POSICIÓN NORMAL, HAY QUE ENTENDER COMO POSICION NO NORMAL AQUELLA QUE LO QUE BUSCA ES UNA VENTAJA PARA TERMINAR ANTES, COSA QUE NO OCURRE CUANDO ESTAS VOLCADO"
+},
+{
+q:"PREGUNTA 173. Un barco está en el lado del recorrido en el momento de su señal de salida y continúa la prueba, termina la prueba 1 minuto antes de que se acabe el tiempo límite para la prueba. El segundo barco en terminar entra dos minutos después de él. Como actuarías si fueses el oficial de regatas de esa prueba.",
+a:[
+"Anularia la prueba",
+"daría por buena la prueba"
+],
+c: [0],
+com:"RRV 35. Anularía porque el barco que ha entrado dentro del tiempo límite, estaba OCS, y por lo tanto no está en regata, y el segundo que sería el primero de los que están en regata no ha entrado en el tiempo límite"
+},
+{
+q:"PREGUNTA 174. Después de estar 30 minutos la flota esperando en el agua sin viento nos entra un viento de 30 nudos por lo que el Comité de Regatas larga Inteligencia sobre H para irse para tierra. Un número de barcos se quedan en el área de regatas entrenando. ¿Qué hacemos?.",
+a:[
+"Protestar a dichos barcos",
+"No hacer nada e irnos para tierra"
+],
+c: [0],
+com:"Esta señal no obliga a los barcos a volver a tierra, a no ser que se diga expresamente en las instrucciones, AUNQUE MEJOR SI DEJAMOS MEDIOS DE SALVAMENTO EN EL AGUA O LOS INVITAMOS A QUE SE VAYAN A TIERRA, FINALMENTE SOMOS LOS RESPONSABLES DE LA SEGURIDAD"
+},
+{
+q:"PREGUNTA 175. A las 11:00 horas el Comité de Regatas larga en tierra Inteligencia sobre numeral 2, debido al fuerte viento que hay. ¿Qué se entenderá con esto?",
+a:[
+"Aplazamiento de 2 horas desde la hora de izar la señal inteligencia sobre numeral 2",
+"Aplazamiento de 2 horas desde la hora de salida programada"
+],
+c: [1],
+com:""
+},
+{
+q:"PREGUNTA 176. Después de una salida el C.R. larga la señal de Llamada Individual X, cuanto tiempo permanecerá ésta izada en el caso de que todos los barcos vuelvan y salgan nuevamente.",
+a:[
+"Se arriará a los 4 minutos o un minuto antes de la siguiente señal de salida, lo que se cumpla antes.",
+"Se arriará en el momento de que todos los barcos hayan regresado completamente al lado de la presalida."
+],
+c: [1],
+com:"RRV 29.1 Llamada Individual - Cuando al darse su señal de salida cualquier parte del casco de un barco esté en el lado del recorrido de la línea de salida o éste deba cumplir con la regla 30.1, el comité de regatas mostrará con prontitud la bandera X con un sonido. La bandera se mostrará hasta que el casco de cada uno de esos barcos haya estado completamente en el lado de pre-salida de la línea de salida o de una de sus prolongaciones, y hasta que todos esos barcos hayan cumplido con la regla 30.1 si se aplica, pero no más tarde de cuatro minutos después de la señal de salida o un minuto antes de la siguiente señal de salida, según lo que ocurra primero. Esta regla no se aplica cuando se apliquen las reglas 29.2, 30.3 o 30.4."
+},
+{
+q:"PREGUNTA 177. Después de una salida el C.R. larga la señal de Llamada Individual X, cuanto tiempo permanecerá ésta izada en el caso de que todos los barcos vuelvan menos uno.",
+a:[
+"Se arriará a los 4 minutos o un minuto antes de la siguiente señal de salida, lo que se cumpla antes.",
+"Se arriará en el momento de que todos los barcos hayan regresado completamente al lado de la presalida."
+],
+c: [0],
+com:"RRV 29.1 Llamada Individual - Cuando al darse su señal de salida cualquier parte del casco de un barco esté en el lado del recorrido de la línea de salida o éste deba cumplir con la regla 30.1, el comité de regatas mostrará con prontitud la bandera X con un sonido. La bandera se mostrará hasta que el casco de cada uno de esos barcos haya estado completamente en el lado de pre-salida de la línea de salida o de una de sus prolongaciones, y hasta que todos esos barcos hayan cumplido con la regla 30.1 si se aplica, pero no más tarde de cuatro minutos después de la señal de salida o un minuto antes de la siguiente señal de salida, según lo que ocurra primero. Esta regla no se aplica cuando se apliquen las reglas 29.2, 30.3 o 30.4."
+},
+{
+q:"PREGUNTA 178. ¿Se puede aplazar una prueba que no ha comenzado?",
+a:[
+"Verdadero",
+"Falso"
+],
+c: [0],
+com:""
+},
+{
+q:"PREGUNTA 179. ¿Se puede aplazar una prueba si ha comenzado?",
+a:[
+"Verdadero",
+"Falso"
+],
+c: [1],
+com:"Las pruebas que han comenzado no se pueden aplazar, solamente se pueden anular y no son validas aunque se pueden volver a correr."
+},
+{
+q:"PREGUNTA 180. ¿Se puede anular una prueba que no ha comenzado?",
+a:[
+"Verdadero",
+"Falso"
+],
+c: [0],
+com:"Una prueba que no se ha comenzado se puede anular. N SOBRE A O N SOBRE H"
+},
+{
+q:"PREGUNTA 181. Tenemos dos clases a la vez pasando por la misma baliza. Debido a un importante role de viento nuestra intención es señalar un cambio de recorrido en dicha baliza pero cuando llegamos a la situación nos encontramos que los tres primeros de una de las clases ya ha tomado la baliza. ¿Podemos señalar de alguna manera el cambio de recorrido para la otra clase?",
+a:[
+"No se podría al haber pasado ya los 3 primeros",
+"Se podría siempre que junto a la bandera C, tengamos la bandera de la clase a la que queramos que se le aplique el cambio"
+],
+c: [1],
+com:""
+},
+{
+q:"PREGUNTA 182. Antes de acabar con el programa de pruebas para ese día el CR decide no hacer más pruebas y no hay previsión alguna en las IR de que se indicará de alguna forma cuando vaya a ver una siguiente prueba. El Oficial de Regatas despliega en el barco de llegadas una Inteligencia sobre A antes de que llegue el primer barco. ¿Es esta actuación correcta?",
+a:[
+"Verdadero",
+"Falso"
+],
+c: [0],
+com:""
+},
+{
+q:"PREGUNTA 183. Puede un barco tocar una baliza de salida entre su señal de atención y de preparación?",
+a:[
+"Verdadero",
+"Falso"
+],
+c: [0],
+com:"Si porque aun no está en regata, en regata se está a partir de la señal de preparación y no antes, según la definición de En Regata"
+},
+{
+q:"PREGUNTA 184. Se ha publicado una modificación a las I.R. en el Tablón Oficial de Avisos: ¿Qué señal debemos dar?",
+a:[
+"Subir bandera L en el mástil de señales.",
+"Señal fónica y subir bandera L en el mástil de señales"
+],
+c: [1],
+com:""
+},
+{
+q:"PREGUNTA 185.  Se ha publicado una modificación a las I.R. en el Tablón Oficial de Avisos y se ha subido la bandera L en el mástil de señales. ¿Cuanto tiempo permanecerá izada?",
+a:[
+"Hasta la salida de la 1ª manga",
+"Hasta que termine el día"
+],
+c: [0],
+com:""
+},
+{
+q:"PREGUNTA 186. Se ha publicado una modificación a las I.R. en el Tablón Oficial de Avisos: y se ha subido la bandera L en el mástil de señales. Si 30 minutos después del primer aviso publicamos un segundo ¿debemos hacer algo nuevo?", 
+a:[
+"Arriaríamos y volveríamos a izar la bandera L",
+"Arriaríamos y volveríamos a pitar y volveríamos a izar la bandera L con señal fónica"
+],
+c: [1],
+com:""
+},
+{
+q:"PREGUNTA 187. Es correcto dar la señal de preparación largando la bandera P junto con la i y la P junto con la Negra",
+a:[
+"Verdadero",
+"Falso"
+],
+c: [1],
+com:"No, porque todas son banderas de preparación, y cada una indica que regla es de aplicación para esa salida"
+},
+{
+q:"PREGUNTA 188. Por problemas con la bocina, hemos dado la señal de preparación sin ir acompañada de su correspondiente sonido. ¿Hay algún problema en esto?",
+a:[
+"SI",
+"NO"
+],
+c: [1],
+com:"RRV 26 SISTEMAS DE SALIDA - Se dará la salida de las pruebas usando las siguientes señales. Los tiempos se cronometrarán desde las señales visuales; la ausencia de una señal fónica no se tomará en cuenta."
+},
+{
+  q:"PREGUNTA 189. Por problemas con la bocina, hemos dado la señal de llamada individual sin ir acompañada de su correspondiente sonido. ¿Hay algún problema en esto?",
+a:[
+  "SI",
+  "NO"
+],
+c: [0],
+com:"Porque no es una señal del sistema de salida, y entonces cualquier otra señal hay que hacerla conforme al RRV, es decir con su señal fonica correspondiente"
+},
+{
+q:"PREGUNTA 190. Tras dar la señal de salida observamos en la lejanía como un barco que venía desde barlovento se da la vuelta y navega con el resto de la flota que subía ciñendo, hace el resto del recorrido y termina. ¿Cómo debemos actuar para con éste barco?",
+a:[
+"Clasificarlo como DNC",
+"Clasificarlo como DNC y presentar una protesta por navegación leal",
+"No hariamos nada, han de ser los otros regatistas los que le protesten"
+],
+c: [1],
+com:""
+},
+{
+q:"PREGUNTA 191. Nada se dice al respecto en las instrucciones de regata. Si izamos en tierra la bandera Y del CIS ¿ que significado tiene?",
+a:[
+"Se deberá usar dispositivos personales de flotación, mientras se esté en regata en esa prueba",
+"Se deberá usar dispositivos personales de flotación, en todo momento mientras se esté a flote en ese día"
+],
+c: [1],
+com:""
+},
+{
+q:"PREGUNTA 192. Hemos identificado a un barco que toca la baliza de salida justo después de la señal de preparación, ¿Cuándo deberá exonerarse?",
+a:[
+"a. Tras la señal de salida efectuando un giro.",
+"b. En ese mismo momento efectuando un giro."
+],
+c: [1],
+com:""
+},
+{
+q:"PREGUNTA 193. Segundos después de largarse la señal de preparación se produce un role de viento de 20° hacia la derecha. ¿Qué debemos hacer?",
+a:[
+"a. Anular la prueba",
+"b. Desplazar la baliza del extremo de babor de la línea hacia barlovento.",
+"c. Aplazar la prueba",
+"d. Seguir adelante con el procedimiento y reposicionar el resto de balizas"
+],
+c: [2],
+com:""
+},
+{
+q:"PREGUNTA 194. Como norma general, que longitud aproximada en esloras debe tener una línea de salida",
+a:[
+"a. entre 2 y 1,5 veces la eslora total de todos los participantes",
+"b. entre 1 y 1,5 veces la eslora total de todos los participantes"
+],
+c: [1],
+com:""
+},
+{
+q:"PREGUNTA 195. No se ha descrito nada en las I.R. sobre procedimiento para cambio de recorrido ni se ha establecido una baliza para ello. ¿Podremos realizar un cambio de recorrido de acuerdo con el RRV?",
+a:[
+"Verdadero",
+"Falso"
+],
+c: [0],
+com:""
+},
+{
+q:"PREGUNTA 196. Durante el último tramo del recorrido se produce un role de viento de 40 grados cuando los barcos van hacia la llegada colocada a barlovento. Esto hace que los barcos lleguen sin dar bordadas. ¿Qué debemos hacer?. Si no afecta a la equidad de la competición dejaría que se terminara.",
+a:[
+"Verdadero",
+"Falso"
+],
+c: [0],
+com:""
+},
+{
+q:"PREGUNTA 197. Durante el último tramo del recorrido se produce un role de viento de 40 grados cuando los barcos van hacia la llegada colocada a barlovento. Esto hace que los barcos lleguen sin dar bordadas. ¿Qué debemos hacer?. Si afecta a la equidad de la competición se anularía.",
+a:[
+"Verdadero",
+"Falso"
+],
+c: [0],
+com:""
+},
+{
+q:"PREGUNTA 198. Tras terminar los tres primeros barcos una prueba, el viento sube de manera brusca poniéndose en peligro la seguridad de los barcos que debemos hacer:",
+a:[
+"a. Anular la prueba aun habiendo entrado esos tres barcos",
+"b. Anular la prueba respetando los tres primeros puestos y solicitando reparación para el resto.",
+"c. Esperar a que termine el tiempo límite y registrar a todos los que entren"
+],
+c: [0],
+com:""
+},
+{
+q:"PREGUNTA 199. ¿Qué podemos hacer si cuando la flota está navegando una prueba comprobamos que se nos ha olvidad el boyarín o baliza de llegada y no tenemos tiempo de ir a tierra a recogerlo?",
+a:[
+"Anular",
+"Poner cualquier baliza o defensa",
+"Poner otra baliza o un barco con la bandera M"
+],
+c: [2],
+com:""
+},
+{
+q:"PREGUNTA 200. ¿Es correcto dar una llamada individual 20 segundos después de la salida?.",
+a:[
+"Verdadero",
+"Falso"
+],
+c: [1],
+com:"Según la regla 29.1 se mostrará la llamada individual con prontitud, 20 segundos no es con prontitud"
+},
+{
+q:"PREGUNTA 201. ¿Es correcto dar una llamada individual sustituyendo la señal fónica por una voz informando del número de vela del barco OCS.",
+a:[
+"Verdadero",
+"Falso"
+],
+c: [1],
+com:"No, ya que la señal de llamada individual debe ser acompañada por un sonido y este ha de ser oído por todos los participantes y una voz puede no ser oída. Regla 29.1 UNA VOZ NO ES UNA SEÑAL FÓNICA"
+},
+{
+q:"PREGUNTA 202. Tras estar registrando el orden de llegada en la línea de llegada vemos como el boyarín de llegada empieza a moverse, minutos después está a tal distancia que no podemos identificar los barcos que cruzan la línea, por lo que no podemos registrar a la mayoría de los barcos. ¿Qué harías en ésta situación?",
+a:[
+"Anular la prueba",
+"Intentar por cualquier medio conseguir el orden de llegada, aunque sea diciendo a los participantes que se pongan en fila según ellos crean que han llegado, y sino se consigue ANULAR, ya que anular es la ultima opción a tomar"
+],
+c: [1],
+com:""
+},
+{
+q:"PREGUNTA 203.Como actuaremos si somos conscientes de un error en el cronometraje de la prueba antes de la señal de salida.",
+a:[
+"Corregir el tiempo en la siguiente señal",
+"Aplazar y dar una nueva salida"
+],
+c: [1],
+com:""
+},
+{
+q:"PREGUNTA 204. Como actuaremos si somos conscientes de un error en el cronometraje de la prueba después de la señal de salida.",
+a:[
+"Seguir con la prueba",
+"Anular y dar una nueva salida"
+],
+c: [1],
+com:""
+},
+{
+q:"PREGUNTA 205. En regatas de Windsurf, no pueden tocar la baliza.",
+a:[
+"Verdadero",
+"Falso"
+],
+c: [1],
+com:""
+},
+{
+q:"PREGUNTA 206. En regatas de Windsurf, como en otras clases, no es obligado avisar en la línea de llegada, la intención de protestar, a no ser que se indique en las Instrucciones.",
+a:[
+"Verdadero",
+"Falso"
+],
+c: [1],
+com:""
+},
+{
+q:"PREGUNTA 207. Hemos identificado a un barco en el lado del recorrido de la línea de salida en el momento de su señal de salida con Papa, a la vez observamos como aborda la baliza de salida un segundo después de la señal de salida:",
+a:[
+"a. El barco vuelve al lado de la presalida cruzando una de las prolongaciones de la línea y sigue adelante",
+"b. El barco vuelve al lado de la presalida y sigue adelante",
+"c. El barco vuelve al lado de la presalida cruzando una de las prolongaciones de la línea, da un giro y sigue adelante",
+"d. El barco vuelve al lado de la presalida, da un giro y sigue adelante"
+],
+c: [3],
+com:""
+},
+{
+q:"PREGUNTA 208. Al final de la serie de una regata de la Clase Windsurf donde se produce la siguiente puntuación, después de descartar una prueba. Indica los puestos en que quedarán al disolver el empate.",
+img:"img/p207.png",
+a:[
+"1° tabla B, 2° tabla A y 3° tabla C",
+"1° tabla C, 2° tabla B y 3° tabla A",
+"1° tabla C, 2° tabla A y 3° tabla B"
+],
+c: [1],
+com:"En windsurf se modifica el apéndice A.8.1, por lo que los desempates se resolverán según la mejor puntación excluida"
 }
-
-  // 👉 aquí sigues añadiendo el resto de preguntas
+  // 👉 aquí van hasta 200 preguntas
 ];
 
-let selected = [], current = 0, score = 0, startTime, timerInt;
+/* =========================
+   VARIABLES DE CONTROL
+   ========================= */
+let remainingQuestions = [];
+let selected = [];
+let current = 0;
+let score = 0;
+let answered = 0;
+let globalAnswered = 0;
 
-function shuffle(a) { return a.sort(() => Math.random() - 0.5); }
+let startTime, timerInt;
 
-function startTest() {
-  selected = shuffle([...questions]).slice(0, 10);
-  current = 0; score = 0;
+/* =========================
+   UTILIDADES
+   ========================= */
+function shuffle(a){ return a.sort(()=>Math.random()-0.5); }
+
+/* =========================
+   INICIALIZAR BANCO
+   ========================= */
+function initQuestionBank(){
+  remainingQuestions = shuffle([...questions]);
+  globalAnswered = 0;
+}
+
+initQuestionBank();
+
+/* =========================
+   INICIO DE TEST
+   ========================= */
+function startTest(){
+
+  if(remainingQuestions.length === 0){
+    showCompletedAll();
+    return;
+  }
+
+  selected = remainingQuestions.splice(0, QUESTIONS_PER_TEST);
+
+  current = 0;
+  score = 0;
+  answered = 0;
+
   document.getElementById("start").classList.add("hidden");
   document.getElementById("end").classList.add("hidden");
   document.getElementById("quiz").classList.remove("hidden");
+
   startTime = Date.now();
   timerInt = setInterval(updateTimer, 1000);
+
   showQuestion();
 }
 
-function updateTimer() {
-  const t = Math.floor((Date.now() - startTime) / 1000);
+/* =========================
+   TEMPORIZADOR
+   ========================= */
+function updateTimer(){
+  const t = Math.floor((Date.now()-startTime)/1000);
   document.getElementById("timer").textContent =
-    String(Math.floor(t / 60)).padStart(2, "0") + ":" +
-    String(t % 60).padStart(2, "0");
+    String(Math.floor(t/60)).padStart(2,"0")+":"+
+    String(t%60).padStart(2,"0");
 }
 
-function showQuestion() {
+/* =========================
+   MOSTRAR PREGUNTA
+   ========================= */
+function showQuestion(){
   const q = selected[current];
 
   document.getElementById("progress").textContent =
-    `Pregunta ${current + 1} de ${selected.length}`;
+    `Pregunta ${current+1} de ${selected.length}`;
   document.getElementById("question").textContent = q.q;
 
   const img = document.getElementById("qImage");
   const wrap = document.getElementById("imgWrapper");
   wrap.classList.add("hidden");
-  if (q.img) { img.src = q.img; wrap.classList.remove("hidden"); }
+  if(q.img){ img.src=q.img; wrap.classList.remove("hidden"); }
 
   const ans = document.getElementById("answers");
   ans.innerHTML = "";
@@ -1313,35 +2205,40 @@ function showQuestion() {
   const nextBtn = document.getElementById("nextBtn");
   nextBtn.classList.add("hidden");
 
-  // 🔢 NUMÉRICA MÚLTIPLE
-  if (q.type === "numeric-multi") {
-    q.parts.forEach((p, i) => {
-      const div = document.createElement("div");
-      div.innerHTML = `<label>${p.label}</label>
-        <input type="number" id="num_${i}" placeholder="Introduce el rumbo">`;
-      ans.appendChild(div);
+  if(q.type==="numeric-multi"){
+    q.parts.forEach((p,i)=>{
+      ans.innerHTML += `
+        <label>${p.label}</label>
+        <input type="number" id="num_${i}" placeholder="Introduce el rumbo">
+      `;
     });
-    nextBtn.textContent = "Comprobar";
-    nextBtn.onclick = () => checkNumericMulti(q);
+    nextBtn.textContent="Comprobar";
+    nextBtn.onclick=()=>checkNumericMulti(q);
     nextBtn.classList.remove("hidden");
     return;
   }
 
-  // 🅰️ TEST NORMAL
-  q.a.forEach((txt, i) => {
-    const b = document.createElement("button");
-    b.textContent = txt;
-    b.onclick = () => answer(b, i);
+  q.a.forEach((txt,i)=>{
+    const b=document.createElement("button");
+    b.textContent=txt;
+    b.onclick=()=>answer(b,i);
     ans.appendChild(b);
   });
 }
 
-function answer(btn, i) {
-  const q = selected[current];
-  document.querySelectorAll("#answers button").forEach(b => b.disabled = true);
+/* =========================
+   RESPUESTA TIPO TEST
+   ========================= */
+function answer(btn,i){
+  answered++;
+  globalAnswered++;
 
-  if (q.c.includes(i)) {
-    btn.classList.add("correct"); score++;
+  const q = selected[current];
+  document.querySelectorAll("#answers button").forEach(b=>b.disabled=true);
+
+  if(q.c.includes(i)){
+    btn.classList.add("correct");
+    score++;
   } else {
     btn.classList.add("wrong");
     q.c.forEach(ci =>
@@ -1349,62 +2246,113 @@ function answer(btn, i) {
     );
   }
 
-  let fb = q.c.includes(i) ? "Acierto" : "Fallo";
-  if (q.com) fb += `<br><em>${q.com}</em>`;
+  let fb = q.c.includes(i)
+    ? `<span class="ok">✔ Acierto</span>`
+    : `<span class="bad">❌ Fallo</span>`;
+
+  if(q.com) fb += `<br><em>${q.com}</em>`;
   document.getElementById("feedback").innerHTML = fb;
 
-  const nextBtn = document.getElementById("nextBtn");
-  nextBtn.textContent = "Siguiente";
-  nextBtn.onclick = nextQuestion;
+  const nextBtn=document.getElementById("nextBtn");
+  nextBtn.textContent="Siguiente";
+  nextBtn.onclick=nextQuestion;
   nextBtn.classList.remove("hidden");
 }
 
-function checkNumericMulti(q) {
-  let ok = 0;
-  let fb = "";
-  q.parts.forEach((p, i) => {
-    const v = Number(document.getElementById(`num_${i}`).value);
-    if (v === p.correct) {
-      fb += `✔ ${p.label}: Correcto (${p.correct}º)<br>`; 
+/* =========================
+   RESPUESTA NUMÉRICA
+   ========================= */
+function checkNumericMulti(q){
+  answered++;
+  globalAnswered++;
+
+  let ok=0, fb="";
+
+  q.parts.forEach((p,i)=>{
+    const v=Number(document.getElementById(`num_${i}`).value);
+    if(v===p.correct){
+      fb+=`<span class="ok">✔ ${p.label}: ${p.correct}º</span><br>`;
       ok++;
     } else {
-      fb += `❌ ${p.label}: Incorrecto. Correcto: ${p.correct}º<br>`;
+      fb+=`<span class="bad">❌ ${p.label}: ${p.correct}º</span><br>`;
     }
   });
-  if (ok === q.parts.length) score++;
-  if (q.com) fb += `<br><em>${q.com}</em>`;
-  document.getElementById("feedback").innerHTML = fb;
 
-  const nextBtn = document.getElementById("nextBtn");
-  nextBtn.textContent = "Siguiente";
-  nextBtn.onclick = nextQuestion;
+  if(ok===q.parts.length) score++;
+  if(q.com) fb+=`<br><em>${q.com}</em>`;
+  document.getElementById("feedback").innerHTML=fb;
+
+  const nextBtn=document.getElementById("nextBtn");
+  nextBtn.textContent="Siguiente";
+  nextBtn.onclick=nextQuestion;
+  nextBtn.classList.remove("hidden");
 }
 
-function nextQuestion() {
+/* =========================
+   SIGUIENTE / FIN
+   ========================= */
+function nextQuestion(){
   current++;
-  if (current < selected.length) showQuestion();
-  else endTest();
+  current < selected.length ? showQuestion() : endTest();
 }
 
-function endTest() {
+function endTest(){
   clearInterval(timerInt);
   document.getElementById("quiz").classList.add("hidden");
-  const perc = Math.round(score / selected.length * 100);
-  document.getElementById("end").classList.remove("hidden");
-  document.getElementById("end").innerHTML =
-    `<h2>${perc >= 80 ? "APTO" : "NO APTO"}</h2>
-     <p>${score}/${selected.length} (${perc}%)</p>
-     <p>Tiempo: ${document.getElementById("timer").textContent}</p>
-     <button onclick="startTest()">Repetir test</button>`;
+
+  const perc = Math.round(score/selected.length*100);
+  const end = document.getElementById("end");
+  end.classList.remove("hidden");
+
+  end.innerHTML = `
+    <h2>${perc>=80?"APTO":"NO APTO"}</h2>
+    <p>Resultado del test: ${score}/${selected.length} (${perc}%)</p>
+    <p>Preguntas contestadas en este test: ${answered}/${selected.length}</p>
+    <hr>
+    <p><strong>Progreso total:</strong> ${globalAnswered}/${questions.length}</p>
+    <p>Tiempo del test: ${document.getElementById("timer").textContent}</p>
+    <button onclick="startTest()">Siguiente test</button>
+  `;
 }
 
-// 🌙 modo oscuro
-document.getElementById("themeToggle").onclick = () => {
+/* =========================
+   FIN DE BANCO COMPLETO
+   ========================= */
+function showCompletedAll(){
+  document.getElementById("start").classList.add("hidden");
+  document.getElementById("quiz").classList.add("hidden");
+
+  const end=document.getElementById("end");
+  end.classList.remove("hidden");
+  end.innerHTML=`
+    <h2>🎉 BANCO DE PREGUNTAS COMPLETADO</h2>
+    <p>Has completado las ${questions.length} preguntas.</p>
+    <button onclick="resetAll()">Reiniciar todo</button>
+  `;
+}
+
+/* =========================
+   REINICIO TOTAL
+   ========================= */
+function resetAll(){
+  clearInterval(timerInt);
+  current=0; score=0; answered=0; selected=[];
+  initQuestionBank();
+
+  document.getElementById("end").classList.add("hidden");
+  document.getElementById("quiz").classList.add("hidden");
+  document.getElementById("start").classList.remove("hidden");
+  document.getElementById("timer").textContent="00:00";
+}
+
+/* =========================
+   MODO OSCURO + PWA
+   ========================= */
+document.getElementById("themeToggle").onclick=()=>{
   document.body.dataset.theme =
-    document.body.dataset.theme === "dark" ? "" : "dark";
+    document.body.dataset.theme==="dark" ? "" : "dark";
 };
 
-// 📦 PWA
-if ("serviceWorker" in navigator) {
+if("serviceWorker" in navigator){
   navigator.serviceWorker.register("sw.js");
 }
