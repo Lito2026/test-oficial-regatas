@@ -1128,7 +1128,7 @@ c: [1],
 com:""
 },
 {
-q:"PREGUNTA 106. Un barco que está recibiendo ayuda exterior puede ser descalificado por el Comité de Protestas sin audiencia",
+q:"PREGUNTA 106. Un barco que está recibiendo ayuda exterior puede ser protestado por el Comité de Protestas sin audiencia",
 a:[ 
 "Verdadero",
 "Falso"
@@ -1978,8 +1978,8 @@ com:""
 {
 q:"PREGUNTA 194. Como norma general, que longitud aproximada en esloras debe tener una línea de salida",
 a:[
-"a. entre 2 y 1,5 veces la eslora total de todos los participantes",
-"b. entre 1 y 1,5 veces la eslora total de todos los participantes"
+"a. como norma general, la eslora total de todos los participantes",
+"b. como norma general,  1,5 veces la eslora total de todos los participantes"
 ],
 c: [1],
 com:""
