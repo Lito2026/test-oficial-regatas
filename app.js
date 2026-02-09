@@ -54,7 +54,7 @@ com:""
     parts: [
       { label: "De Baliza 1 a Baliza 2", correct: 340 },
       { label: "De Baliza 3 a Baliza 4", correct: 160 },
-      { label: "De Baliza 3 a la Línea de Llegada", correct: 110 }
+      { label: "De Baliza 3 a la Línea de Llegada", correct: 200 }
     ],
     com:"Directrices 5.2 para barcos sin spi y windsurfer. 110º para barcos con spi (120º)."
   },
@@ -817,7 +817,7 @@ type: "numeric-multi",
       { label: "De Baliza 3 a Baliza 4", correct: 250 },
       { label: "De Baliza 3 a la Línea de Llegada", correct: 290 },
       { label: "De la Línea de Llegada a Baliza 3", correct: 110 },
-      { label: "Del barco del Comite a PIN de salida", correct: 110 }
+      { label: "Del barco del Comite a PIN de salida", correct: 90 }
     ],
     com:"Directrices 5.2 para barcos sin spi y windsurfer. 110º para barcos con spi (120º)."
 },
@@ -1088,7 +1088,7 @@ c: [1],
 com:""
 },
 {
-q:"PREGUNTA 102. Un barco que rellena una protesta NO puede volver a la Oficina de Regata y retirarla con tal de que lo haga antes de terminar el tiempo para protestar",
+q:"PREGUNTA 102. Un barco que rellena una protesta NO puede volver a la Oficina de Regata y retirarla, aunque lo haga antes de terminar el tiempo para protestar",
 a:[ 
 "Verdadero",
 "Falso"
@@ -1128,7 +1128,7 @@ c: [1],
 com:""
 },
 {
-q:"PREGUNTA 106. Un barco que está recibiendo ayuda exterior puede ser protestado por el Comité de Protestas sin audiencia",
+q:"PREGUNTA 106. Un barco que está recibiendo ayuda exterior puede ser protestado por el Comité de Protestas",
 a:[ 
 "Verdadero",
 "Falso"
@@ -1375,8 +1375,8 @@ com:"Si el barco cumple con el Código de Publicidad de World Sailing un comité
 {
 q:"PREGUNTA 131. Después de la señal de salida el Comité de Regatas es insultado por un participante que ha llegado tarde a la línea de salida. ¿Cómo debe actuar el Oficial de Regatas?",
 a:[
-"Verdadero",
-"Falso"
+"Descalificarlo",
+"Presentar informe al CP"
 ],
 c: [1],
 com:"Presentar un informe al Comité de Protestas solicitándole que actué"
@@ -1798,7 +1798,7 @@ a:[
 "Protestar a dichos barcos",
 "No hacer nada e irnos para tierra"
 ],
-c: [0],
+c: [1],
 com:"Esta señal no obliga a los barcos a volver a tierra, a no ser que se diga expresamente en las instrucciones, AUNQUE MEJOR SI DEJAMOS MEDIOS DE SALVAMENTO EN EL AGUA O LOS INVITAMOS A QUE SE VAYAN A TIERRA, FINALMENTE SOMOS LOS RESPONSABLES DE LA SEGURIDAD"
 },
 {
