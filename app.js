@@ -2,7 +2,7 @@ const QUESTIONS_PER_TEST = 15;
 
 /* ===== BANCO TOTAL ===== */
 const questions = [
-  {
+{
 q:"PREGUNTA 1. Al izarse la bandera S del CIS en las inmediaciones de una baliza que hay que rodear, significa:",
 a:[ 
 "a. Terminar en la próxima baliza del recorrido.",
@@ -1455,7 +1455,7 @@ a:[
 "El comite de regatas",
 "El comite de protestas"
 ],
-c: [3],
+c: [2],
 com:""
 },
 {
@@ -2107,7 +2107,7 @@ com:""
 },
 {
 q:"PREGUNTA 208. Al final de la serie de una regata de la Clase Windsurf donde se produce la siguiente puntuación, después de descartar una prueba. Indica los puestos en que quedarán al disolver el empate.",
-img:"img/p207.png",
+img:"img/p208.png",
 a:[
 "1° tabla B, 2° tabla A y 3° tabla C",
 "1° tabla C, 2° tabla B y 3° tabla A",
@@ -2116,35 +2116,29 @@ a:[
 c: [1],
 com:"En windsurf se modifica el apéndice A.8.1, por lo que los desempates se resolverán según la mejor puntación excluida"
 }
-  // 👉 aquí hasta 200 preguntas
+
+ // 👉 puedes seguir añadiendo hasta 200+ preguntas aquí
 ];
 
 /* ===== ESTADO ===== */
-let remainingQuestions=[];
-let selected=[];
-let current=0;
-let score=0;
-let answered=0;
-let globalAnswered=0;
-let startTime,timerInt;
+let remainingQuestions=[], selected=[];
+let current=0, score=0, answered=0, globalAnswered=0;
+let startTime, timerInt;
 
-/* ===== UTILS ===== */
-function shuffle(a){return a.sort(()=>Math.random()-0.5);}
+/* ===== UTIL ===== */
+const shuffle=a=>a.sort(()=>Math.random()-0.5);
 
 /* ===== INIT ===== */
 function initQuestionBank(){
-  remainingQuestions=shuffle([...questions]);
-  globalAnswered=0;
+  remainingQuestions = shuffle([...questions]);
+  globalAnswered = 0;
 }
 initQuestionBank();
 
-/* ===== START TEST ===== */
+/* ===== START ===== */
 function startTest(){
-  if(remainingQuestions.length===0){
-    showCompletedAll(); return;
-  }
-
-  selected=remainingQuestions.splice(0,QUESTIONS_PER_TEST);
+  if(!remainingQuestions.length){ showCompletedAll(); return; }
+  selected = remainingQuestions.splice(0, QUESTIONS_PER_TEST);
   current=0; score=0; answered=0;
 
   document.getElementById("start").classList.add("hidden");
@@ -2167,88 +2161,88 @@ function updateTimer(){
 /* ===== SHOW QUESTION ===== */
 function showQuestion(){
   const q=selected[current];
+  const type=q.type||"single";
+
   document.getElementById("progress").textContent=
     `Pregunta ${current+1} de ${selected.length}`;
   document.getElementById("question").textContent=q.q;
 
-  const img=document.getElementById("qImage");
-  const wrap=document.getElementById("imgWrapper");
-  wrap.classList.add("hidden");
-  if(q.img){img.src=q.img;wrap.classList.remove("hidden");}
-
   const ans=document.getElementById("answers");
   ans.innerHTML="";
   document.getElementById("feedback").innerHTML="";
-  const nextBtn=document.getElementById("nextBtn");
-  nextBtn.classList.add("hidden");
 
-  if(q.type==="numeric-multi"){
+  const imgW=document.getElementById("imgWrapper");
+  const img=document.getElementById("qImage");
+  imgW.classList.add("hidden");
+  if(q.img){ img.src=q.img; imgW.classList.remove("hidden"); }
+
+  const next=document.getElementById("nextBtn");
+  next.classList.add("hidden");
+
+  if(type==="numeric-multi"){
     q.parts.forEach((p,i)=>{
       ans.innerHTML+=`
         <button class="numeric-option-btn" disabled>${p.label}</button>
-        <input type="number" id="num_${i}" class="numeric-input-btn"
-               placeholder="Introduce el rumbo">
+        <input type="text" id="num_${i}" class="numeric-input-btn"
+               placeholder="Introduce la respuesta">
       `;
     });
-    nextBtn.textContent="Comprobar";
-    nextBtn.onclick=()=>checkNumericMulti(q);
-    nextBtn.classList.remove("hidden");
+    next.textContent="Comprobar";
+    next.onclick=()=>checkNumericMulti(q);
+    next.classList.remove("hidden");
     return;
   }
 
   q.a.forEach((txt,i)=>{
     const b=document.createElement("button");
     b.textContent=txt;
-    b.onclick=()=>answer(b,i);
+    b.onclick=()=>answerChoice(b,i,q);
     ans.appendChild(b);
   });
 }
 
-/* ===== ANSWER TEST ===== */
-function answer(btn,i){
+/* ===== ANSWER SINGLE ===== */
+function answerChoice(btn,i,q){
   answered++; globalAnswered++;
-  const q=selected[current];
-  document.querySelectorAll("#answers button").forEach(b=>b.disabled=true);
+  const buttons=document.querySelectorAll("#answers button");
+  buttons.forEach(b=>b.disabled=true);
 
-  if(q.c.includes(i)){btn.classList.add("correct"); score++;}
-  else{
+  if(q.c.includes(i)){
+    btn.classList.add("correct"); score++;
+    document.getElementById("feedback").innerHTML=`<span class="ok">✔ Acierto</span>`;
+  } else {
     btn.classList.add("wrong");
-    q.c.forEach(ci=>
-      document.querySelectorAll("#answers button")[ci].classList.add("correct")
-    );
+    q.c.forEach(ci=>buttons[ci].classList.add("correct"));
+    document.getElementById("feedback").innerHTML=`<span class="bad">❌ Fallo</span>`;
   }
 
-  let fb=q.c.includes(i)
-    ? `<span class="ok">✔ Acierto</span>`
-    : `<span class="bad">❌ Fallo</span>`;
-  if(q.com) fb+=`<br><em>${q.com}</em>`;
-  document.getElementById("feedback").innerHTML=fb;
-
-  const nextBtn=document.getElementById("nextBtn");
-  nextBtn.textContent="Siguiente";
-  nextBtn.onclick=nextQuestion;
-  nextBtn.classList.remove("hidden");
+  if(q.com) document.getElementById("feedback").innerHTML+=`<br><em>${q.com}</em>`;
+  const next=document.getElementById("nextBtn");
+  next.textContent="Siguiente";
+  next.onclick=nextQuestion;
+  next.classList.remove("hidden");
 }
 
-/* ===== ANSWER NUMERIC ===== */
+/* ===== ANSWER NUMERIC MULTI ===== */
 function checkNumericMulti(q){
   answered++; globalAnswered++;
   let ok=0, fb="";
 
   q.parts.forEach((p,i)=>{
-    const v=Number(document.getElementById(`num_${i}`).value);
-    if(v===p.correct){fb+=`<span class="ok">✔ ${p.label}: ${p.correct}º</span><br>`;ok++;}
-    else{fb+=`<span class="bad">❌ ${p.label}: ${p.correct}º</span><br>`;}
+    const u=document.getElementById(`num_${i}`).value.trim().toUpperCase();
+    const c=String(p.correct).trim().toUpperCase();
+    if(u===c){ fb+=`<span class="ok">✔ ${p.label}: ${c}</span><br>`; ok++; }
+    else { fb+=`<span class="bad">❌ ${p.label}: ${c}</span><br>`; }
   });
 
   if(ok===q.parts.length) score++;
   if(q.com) fb+=`<br><em>${q.com}</em>`;
   document.getElementById("feedback").innerHTML=fb;
 
-  const nextBtn=document.getElementById("nextBtn");
-  nextBtn.textContent="Siguiente";
-  nextBtn.onclick=nextQuestion;
-  nextBtn.classList.remove("hidden");
+  const next=document.getElementById("nextBtn");
+  next.textContent="Siguiente";
+  next.onclick=nextQuestion;
+  next.classList.remove("hidden");
 }
 
 /* ===== NEXT / END ===== */
@@ -2259,48 +2253,29 @@ function nextQuestion(){
 function endTest(){
   clearInterval(timerInt);
   document.getElementById("quiz").classList.add("hidden");
-
-  const perc=Math.round(score/selected.length*100);
+  const p=Math.round(score/selected.length*100);
   document.getElementById("end").classList.remove("hidden");
   document.getElementById("end").innerHTML=`
-    <h2>${perc>=80?"APTO":"NO APTO"}</h2>
-    <p>Resultado test: ${score}/${selected.length} (${perc}%)</p>
-    <p>Contestadas test: ${answered}/${selected.length}</p>
-    <hr>
-    <p><strong>Progreso total:</strong> ${globalAnswered}/${questions.length}</p>
+    <h2>${p>=80?"APTO":"NO APTO"}</h2>
+    <p>Resultado: ${score}/${selected.length} (${p}%)</p>
+    <p>Progreso total: ${globalAnswered}/${questions.length}</p>
     <p>Tiempo: ${document.getElementById("timer").textContent}</p>
-    <button onclick="startTest()">Siguiente test</button>
-  `;
+    <button onclick="startTest()">Siguiente test</button>`;
 }
 
-/* ===== COMPLETED ALL ===== */
+/* ===== COMPLETADO ===== */
 function showCompletedAll(){
-  document.getElementById("quiz").classList.add("hidden");
-  document.getElementById("start").classList.add("hidden");
   document.getElementById("end").classList.remove("hidden");
   document.getElementById("end").innerHTML=`
-    <h2>🎉🎉🎉 BANCO DE PREGUNTAS COMPLETADO 🎉🎉🎉</h2>
-    <p>Has completado las ${questions.length} preguntas.</p>
-    <button onclick="resetAll()">Reiniciar todo</button>
-  `;
+    <h2>🎉🎉 BANCO DE PREGUNTAS COMPLETADO 🎉🎉</h2>
+    <p>Has completado todas las preguntas.</p>
+    <button onclick="resetAll()">Reiniciar todo</button>`;
 }
 
-/* ===== RESET ===== */
 function resetAll(){
   clearInterval(timerInt);
-  current=0; score=0; answered=0; selected=[];
   initQuestionBank();
   document.getElementById("end").classList.add("hidden");
   document.getElementById("start").classList.remove("hidden");
   document.getElementById("timer").textContent="00:00";
-}
-
-/* ===== THEME + PWA ===== */
-document.getElementById("themeToggle").onclick=()=>{
-  document.body.dataset.theme=
-    document.body.dataset.theme==="dark"?"":"dark";
-};
-
-if("serviceWorker" in navigator){
-  navigator.serviceWorker.register("sw.js");
 }

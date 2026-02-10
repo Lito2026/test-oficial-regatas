@@ -16,26 +16,76 @@
 [data-theme="dark"]{
   --bg:#0f172a; --text:#e5e7eb; --card:#020617;
 }
-body{margin:0;font-family:system-ui;background:var(--bg);color:var(--text)}
-header{position:sticky;top:0;background:var(--card);padding:10px;text-align:center;z-index:10}
+
+body{
+  margin:0;
+  font-family:system-ui;
+  background:var(--bg);
+  color:var(--text);
+}
+
+header{
+  position:sticky;
+  top:0;
+  background:var(--card);
+  padding:10px;
+  text-align:center;
+  z-index:10;
+}
+
 h1{margin:0;font-size:1.2rem}
 .copyright{font-size:.8rem;opacity:.7}
 .toggle{position:absolute;right:10px;top:10px;cursor:pointer}
-main{padding:15px;max-width:800px;margin:auto}
-.card{background:var(--card);padding:15px;border-radius:14px}
-button{width:100%;margin:8px 0;padding:12px;font-size:16px;color:#fff; border-radius:12px;border:2px solid var(--primary);background: #0077ff}
-button.correct{background:var(--ok);color:#fff;border-color:var(--ok)}
-button.wrong{background:var(--bad);color:#fff;border-color:var(--bad)}
+
+main{
+  padding:15px;
+  max-width:800px;
+  margin:auto;
+}
+
+.card{
+  background:var(--card);
+  padding:15px;
+  border-radius:14px;
+}
+
+button{
+  width:100%;
+margin:8px 0;
+padding:12px;
+font-size:16px;
+color:#fff; 
+border-radius:12px;
+border:2px solid var(--primary);
+background: #0077ff
+}
+button.correct{
+  background:var(--ok);
+  color:#fff;
+  border-color:var(--ok);
+}
+
+button.wrong{
+  background:var(--bad);
+  color:#fff;
+  border-color:var(--bad);
+}
+
 .hidden{display:none}
 .timer{text-align:right;font-weight:bold}
-img{max-width:100%;border-radius:12px}
+
+img{
+  max-width:100%;
+  border-radius:12px;
+}
+
 .ok{color:#2ecc71;font-weight:bold}
 .bad{color:#e74c3c;font-weight:bold}
 
-/* === Numeric-multi buttons === */
+/* === NUMERIC MULTI === */
 .numeric-option-btn{
   width:100%;
-  background:#318cf4;
+  background:#0077ff;
   color:#fff;
   padding:12px;
   margin-top:12px;
@@ -44,15 +94,14 @@ img{max-width:100%;border-radius:12px}
   font-weight:600;
   cursor:default;
 }
-
 .numeric-input-btn{
   width:100%;
   margin-top:8px;
   padding:12px;
   border-radius:12px;
   border:2px solid #9ca3af;
-  background:#c1c2c3;
-  color:#080000;
+  background:#e5e7eb;
+  color:#000;
   font-size:1rem;
   text-align:center;
 }
@@ -66,7 +115,7 @@ img{max-width:100%;border-radius:12px}
 
 <body>
 <header>
-  <h1>TEST OFICIAL DE REGATAS - V5 (03/02/2026)</h1>
+  <h1>TEST OFICIAL DE REGATAS - V6 (10/02/2026)</h1>
   <div class="copyright">© Angel Ruiz</div>
   <div class="toggle" id="themeToggle">🌙/☀️</div>
 </header>
